@@ -1,0 +1,82 @@
+# Portfolio Content Configuration
+# Each piece should have one main image
+
+pieces:
+  - id: reboot-mag
+    title: reboot mag
+    image: /images/reboot.png
+    description: Digital magazine exploring technology and humanity
+    category: publication
+    hasArrow: false
+    aspectRatio: 3/4
+    backgroundColor: blue-800
+
+  - id: landscape
+    title: spring
+    image: /images/spring.png
+    description: Abstract landscape study
+    category: painting
+    hasArrow: false
+    aspectRatio: 16/9
+    backgroundColor: sky-300
+
+  - id: comic-frames
+    title: (comic)
+    image: /images/comic.png
+    description: Sequential art exploring urban isolation
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-100
+
+  - id: nyc-heartbreak-map
+    title: nyc heartbreak map
+    image: /images/hb_map.png
+    description: A mapping of emotional experiences across New York City
+    category: cartography
+    hasArrow: false
+    aspectRatio: 16/9
+    backgroundColor: pink-200
+    
+
+    
+
+    
+  - id: dont-look
+    title: don't look at me, i'm scared
+    image: /images/im_shy.png
+    description: Interactive piece on vulnerability and exposure
+    category: digital
+    hasArrow: false
+    aspectRatio: 16/9
+    backgroundColor: black
+    
+  - id: crossed-wires
+    title: crossed wires
+    image: /images/crossed_wires.png
+    description: Urban landscape as seen from inside
+    category: illustration
+    hasArrow: false
+    aspectRatio: 4/3
+    backgroundColor: gray-100
+    
+  - id: portrait
+    title: acnl fish chart
+    image: /images/fish.png
+    description: Experimental self-portrait
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    
+
+
+# Global settings
+settings:
+  columnCount:
+    mobile: 1
+    tablet: 2
+    desktop: 3
+  spacing: 4
+  borderColor: gray-200
+  textSize: sm
