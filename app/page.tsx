@@ -15,15 +15,17 @@ interface PortfolioPiece {
   useFrameAnimation?: boolean;
 }
 
+const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+
 export default function Home() {
   // const nycHeartbreakMap = portfolioData.pieces.find(piece: => piece.id === 'nyc-heartbreak-map')
 
   return (
     <div>
-      <div className="w-full">
-        <Image src="/bunnies.png" alt="Bunnies" width={300}
+      <div className="h-[90px] md:h-full ">
+        <Image src={`${base}/bunnies.png`} alt="Bunnies" width={300}
                   height={200}
-                  className={`w-full h-auto`}/>
+                  className={`w-full h-full object-cover`}/>
       </div>
     <div className="p-4 columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
       {portfolioData.pieces.map((piece: PortfolioPiece) => (
@@ -32,7 +34,7 @@ export default function Home() {
             <div className="col-span-2">
             
                 <Image
-                  src={piece.image}
+                  src={`${base}${piece.image}`}
                   width={300}
                   height={200}
                   alt={piece.description}

@@ -11,6 +11,15 @@ pieces:
     aspectRatio: 3/4
     backgroundColor: blue-800
 
+  - id: dog
+    title: losing dogs
+    image: /images/dog.png
+    description: Abstract landscape study
+    category: painting
+    hasArrow: false
+    aspectRatio: 9/16
+    backgroundColor: sky-300
+
   - id: landscape
     title: spring
     image: /images/spring.png

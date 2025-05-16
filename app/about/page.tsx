@@ -5,7 +5,17 @@ export default function About() {
         {/* <h1 className="text-2xl mb-6">about me</h1> */}
         <div className="prose">
           <p className="mb-4">
-            i am a creator excavating the emotions we hide from ourselves. i draw illustrations, write comics, spin up interactive schemes. i'm a designer, systems thinker, ex-machine learning engineer. i explore relationships, coming-of-age moments, and how technology reshapes our social fabric
+            i am a creator exploring the emotions we bury. <br></br>
+            guilt. shame. wanting too much. not saying what we mean.
+
+
+          </p>
+            i work across illustration, comics, and interactive media.
+            i used to build machine learning systems; now i build stories.
+            most of my work lives somewhere between coming-of-age, connection, and the way technology reshapes who we think we are.
+
+            i care about things that are tender, curious, and hard to look at.
+          <p>
           </p>
           <p className="mb-4 mt-16">
           you do not have to be good. <br/>

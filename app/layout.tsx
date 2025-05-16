@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 import PowerButton from "@/components/power-button"
 import Link from "next/link"
@@ -10,6 +11,7 @@ import FrameAnimation from "@/components/frame-animation"
 import Marquee from "react-fast-marquee"
 
 
+const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
 
 export default function RootLayout({
   children,
@@ -32,7 +34,7 @@ export default function RootLayout({
               <div className="w-6 h-4 border border-gray-800 rounded-sm relative">
                 <div className="absolute right-0.5 top-0.5 bottom-0.5 w-3/4 bg-gray-800"></div>
               </div>
-              <PowerButton />
+              <a><PowerButton /></a>
             </div>
       </header>
       <div className="fixed top-[48px] w-full bg-black text-white overflow-hidden whitespace-nowrap z-20">
@@ -46,16 +48,32 @@ export default function RootLayout({
         {/* Fixed Sidebar */}
         <aside className="fixed pt-1 top-16 left-0 bottom-0 w-[210px] border-r border-gray-200 bg-white z-10 overflow-y-auto flex flex-col justify-between">
           <nav className="p-4 space-y-4">
-            <div className="py-2">
-              <Link href="/" className="hover:underline"> home </Link>
+            <div className="py-2 flex flex-col items-start ">
+              <Link href="/" className="hover:underline flex flex-col items-start">
+                <Image src={`${base}/icons/home.png`} alt="Home icon" width={48} height={48} className="mb-2" />
+                <span className="whitespace-nowrap">home</span>
+              </Link>
             </div>
             
-            <div className="py-2">
-              <Link href="/shop" className="hover:underline"> shop </Link>
+            <div className="py-2 flex flex-col items-start ">
+              <Link href="https://www.yourworldoftext.com/~linglu66/" className="hover:underline flex flex-col items-start">
+                <Image src={`${base}/icons/note.png`} alt="Leave note icon" width={48} height={48} className="mb-2" />
+                <span className="whitespace-nowrap">leave&nbsp;note</span>
+              </Link>
             </div>
 
-            <div className="py-2">
-              <Link href="/about" className="hover:underline"> ??? </Link>
+            <div className="py-2 flex flex-col items-start">
+              <Link href="/shop" className="hover:underline flex flex-col items-start">
+                <Image src={`${base}/icons/shop.png`} alt="Shop icon" width={48} height={48} className="mb-2" />
+                <span className="whitespace-nowrap">shop</span>
+              </Link>
+            </div>
+
+            <div className="py-2 flex flex-col items-start">
+              <Link href="/about" className="hover:underline flex flex-col items-start">
+                <Image src={`${base}/icons/about.png`} alt="About icon" width={48} height={48} className="mb-2" />
+                <span className="whitespace-nowrap">???</span>
+              </Link>
             </div>
 
             {/* <div className="border border-gray-300 rounded-md p-4 relative mt-8">
@@ -96,13 +114,12 @@ export default function RootLayout({
             </div> */}
           </nav>
 
-          <a href="/about" className="block pb-4">
+          <Link href="/about" className="block pb-4">
               <FrameAnimation
-                image1="/images/anim/me1.png"
-                image2="/images/anim/me2.png" 
-                image3="/images/anim/me3.png" 
-              />
-          </a>
+                image1={`${base}/images/anim/me1.png`}
+                image2={`${base}/images/anim/me2.png`}
+                image3={`${base}/images/anim/me3.png`} />
+          </Link>
         </aside>
 
         {/* Main Content */}

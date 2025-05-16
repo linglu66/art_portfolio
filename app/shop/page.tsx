@@ -1,9 +1,12 @@
-import { Construction } from "lucide-react"
+import Image from "next/image"
+const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
 
 export default function ShopPage() {
   return (
     <div className="flex flex-col items-center justify-center h-[70vh] text-center">
-      <Construction size={64} className="mb-6 text-gray-400" />
+      <Image src={`${base}"/icons/in_progress.png"`} alt="wip" width={150}
+                  height={150}
+                  className={`size-32 mb-6`}/>
 
       <h1 className="text-xl mb-4">shop</h1>
 

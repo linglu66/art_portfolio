@@ -65,8 +65,8 @@ const FrameAnimation = ({ image1, image2, image3 }: FrameAnimationProps) => {
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
+            width: '150px',
+            height: '150px',
             opacity: currentFrame === index ? 1 : 0,
             // transition: 'opacity 0.5s ',
           }}

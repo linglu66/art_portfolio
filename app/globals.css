@@ -13,6 +13,7 @@
   }
 }
 
+
 @font-face {
   font-family: 'pixelOp';
   src: url('/fonts/PixelOperator.woff2') format('woff2');
@@ -30,7 +31,14 @@
 
 body {
   font-family: "pixelOp", monospace;
+  cursor: url("/cursor.png"), auto;
+  
+
   /* font-size: 32px; */
+}
+
+a:hover {
+  cursor: url("/hand.png"), pointer;
 }
 
 @layer utilities {
