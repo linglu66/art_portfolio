@@ -24,17 +24,18 @@ export default function RootLayout({
     <div className="flex flex-col min-h-screen font-mono  ">
        {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-3 border-b border-gray-200 bg-white z-10">
-        <div>ling.OS</div>
+        
         <div>
           {new Date()
             .toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
             .replace(/^./, c => c.toLowerCase())}
         </div>
+        <div>ling lu / fishlooker </div>
         <div className="flex items-center gap-4">
               <div className="w-6 h-4 border border-gray-800 rounded-sm relative">
                 <div className="absolute right-0.5 top-0.5 bottom-0.5 w-3/4 bg-gray-800"></div>
               </div>
-              <a><PowerButton /></a>
+              <a className="pt-1"><PowerButton /></a>
             </div>
       </header>
       <div className="fixed top-[48px] w-full bg-black text-white overflow-hidden whitespace-nowrap z-20">
@@ -46,7 +47,7 @@ export default function RootLayout({
 
       <div className="flex flex-1 pt-16">
         {/* Fixed Sidebar */}
-        <aside className="fixed pt-1 top-16 left-0 bottom-0 w-[210px] border-r border-gray-200 bg-white z-10 overflow-y-auto flex flex-col justify-between">
+        <aside className="fixed pt-1 top-16 left-0 bottom-0 w-[160px] border-r border-gray-200 bg-white z-10 overflow-y-auto flex flex-col justify-between">
           <nav className="p-4 space-y-4">
             <div className="py-2 flex flex-col items-start ">
               <Link href="/" className="hover:underline flex flex-col items-start">
@@ -123,7 +124,7 @@ export default function RootLayout({
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 ml-[210px] overflow-y-auto h-[calc(100vh-4rem)]">
+        <main className="flex-1 ml-[160px] overflow-y-auto h-[calc(100vh-4rem)]">
           {children}
         </main>
       </div>

@@ -22,14 +22,14 @@ export default function Home() {
 
   return (
     <div>
-      <div className="h-[90px] md:h-full ">
+      {/* <div className="h-[90px] md:h-full ">
         <Image src={`${base}/bunnies.png`} alt="Bunnies" width={300}
                   height={200}
                   className={`w-full h-full object-cover`}/>
-      </div>
+      </div> */}
     <div className="p-4 columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
       {portfolioData.pieces.map((piece: PortfolioPiece) => (
-        <div key={piece.id} className="border border-gray-200 rounded-md p-4 relative inline-block w-full mt-4">
+        <div key={piece.id} className="border border-gray-200 rounded-md p-2 relative inline-block w-full mt-4">
           <div className="grid grid-cols-2 gap-2">
             <div className="col-span-2">
             
