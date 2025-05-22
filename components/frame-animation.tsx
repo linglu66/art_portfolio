@@ -49,8 +49,8 @@ const FrameAnimation = ({ image1, image2, image3 }: FrameAnimationProps) => {
   return (
     <div 
       style={{
-        width: '200px',
-        height: '200px',
+        width: '150px',
+        height: '150px',
         position: 'relative',
         overflow: 'hidden',
         cursor: 'pointer',

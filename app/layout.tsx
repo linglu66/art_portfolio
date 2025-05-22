@@ -20,6 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+       <head>
+       <title>Ling Lu</title>
+        <link rel="icon" href={`${base}/favicon.ico`} />
+      </head>
       <body className="bg-white text-gray-900 font-mono text-lg overflow-hidden">
     <div className="flex flex-col min-h-screen font-mono  ">
        {/* Fixed Header */}
