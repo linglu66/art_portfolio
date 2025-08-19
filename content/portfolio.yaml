@@ -4,80 +4,123 @@
 pieces:
   - id: reboot-mag
     title: reboot mag
-    image: /images/reboot.png
+    cover: /images/reboot.png
+    images: []
     description: Digital magazine exploring technology and humanity
     category: publication
     hasArrow: false
     aspectRatio: 3/4
     backgroundColor: blue-800
+    hasDetailPage: true
 
   - id: dog
     title: losing dogs
-    image: /images/dog.png
+    cover: /images/dog.png
+    images: []
     description: Abstract landscape study
     category: painting
     hasArrow: false
     aspectRatio: 9/16
     backgroundColor: sky-300
+    hasDetailPage: true
 
   - id: landscape
     title: spring
-    image: /images/spring.png
+    cover: /images/spring.png
+    images: []
     description: Abstract landscape study
     category: painting
     hasArrow: false
     aspectRatio: 16/9
     backgroundColor: sky-300
+    hasDetailPage: true
 
+  - id: fallen_star
+    title: fallen star
+    cover: /images/fallen_star.jpg
+    images: []
+    description: illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+
+  
   - id: comic-frames
     title: (comic)
-    image: /images/comic.png
+    cover: /images/comic.png
+    images: []
     description: Sequential art exploring urban isolation
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
     backgroundColor: yellow-100
+    hasDetailPage: false
 
   - id: nyc-heartbreak-map
     title: nyc heartbreak map
-    image: /images/hb_map.png
+    cover: /images/hb_map.png
+    images: []
     description: A mapping of emotional experiences across New York City
     category: cartography
     hasArrow: false
     aspectRatio: 16/9
     backgroundColor: pink-200
-    
+    hasDetailPage: false
 
-    
+  - id: crossed-wires
+    title: crossed wires
+    cover: /images/crossed_wires.png
+    images:
+      - /images/p1.jpg
+      - /images/p2.jpg
+      - /images/p3.jpg
+      - /images/p4.jpg
+      - /images/p5.jpg
+      - /images/p6.jpg
+      - /images/p7.jpg
+      - /images/p8.jpg
+    description: "2 color risograph minicomic in blue and scarlet \n \n a coming of age story and my first comic. printed at SVA risolab"
+    category: illustration
+    hasArrow: false
+    aspectRatio: 4/3
+    backgroundColor: gray-100
+    hasDetailPage: true
 
-    
   - id: dont-look
     title: don't look at me, i'm scared
-    image: /images/im_shy.png
+    cover: /images/im_shy.png
+    images: []
     description: Interactive piece on vulnerability and exposure
     category: digital
     hasArrow: false
     aspectRatio: 16/9
     backgroundColor: black
-    
-  - id: crossed-wires
-    title: crossed wires
-    image: /images/crossed_wires.png
-    description: Urban landscape as seen from inside
-    category: illustration
-    hasArrow: false
-    aspectRatio: 4/3
-    backgroundColor: gray-100
-    
+    hasDetailPage: false
+
+
   - id: portrait
     title: acnl fish chart
-    image: /images/fish.png
+    cover: /images/fish.png
+    images: []
     description: Experimental self-portrait
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
     backgroundColor: yellow-50
-    
+    hasDetailPage: false
+
+  - id: rolling_clouds
+    title: clouds
+    cover: /images/rolling_clouds.jpg
+    images: []
+    description: Experimental self-portrait
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
 
 
 # Global settings

@@ -63,7 +63,7 @@ export default function RootLayout({
             <div className="py-2 flex flex-col items-start ">
               <Link href="https://www.yourworldoftext.com/~linglu66/" className="hover:underline flex flex-col items-start">
                 <Image src={`${base}/icons/note.png`} alt="Leave note icon" width={48} height={48} className="mb-2" />
-                <span className="whitespace-nowrap">leave&nbsp;note</span>
+                <span className="whitespace-nowrap">note</span>
               </Link>
             </div>
 
