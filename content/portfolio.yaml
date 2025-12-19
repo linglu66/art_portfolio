@@ -87,6 +87,23 @@ pieces:
     backgroundColor: gray-100
     hasDetailPage: true
 
+  - id: featherweight
+    title: featherweight
+    cover: /images/featherweight.jpg
+    images:
+      - /images/featherweight_p1.jpg
+      - /images/featherweight_p2.jpg
+      - /images/featherweight_p3.jpg
+      - /images/featherweight_p4.jpg
+      - /images/featherweight_p5.jpg
+      - /images/featherweight_p6.jpg
+    description: "multipage comic story"
+    category: illustration
+    hasArrow: false
+    aspectRatio: 4/3
+    backgroundColor: gray-100
+    hasDetailPage: true
+
   - id: dont-look
     title: don't look at me, i'm scared
     cover: /images/im_shy.png
@@ -115,6 +132,39 @@ pieces:
     cover: /images/rolling_clouds.jpg
     images: []
     description: Experimental self-portrait
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: tiger
+    title: tiger
+    cover: /images/tiger.jpg
+    images: []
+    description: Print illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: the_bear
+    title: the bear
+    cover: /images/the_bear.jpg
+    images: []
+    description: Print illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: sunny
+    title: sunny
+    cover: /images/sunny.jpg
+    images: []
+    description: Print illustration
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
