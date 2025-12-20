@@ -11,7 +11,7 @@ pieces:
     hasArrow: false
     aspectRatio: 3/4
     backgroundColor: blue-800
-    hasDetailPage: true
+    hasDetailPage: false
 
   - id: dog
     title: losing dogs
@@ -22,7 +22,7 @@ pieces:
     hasArrow: false
     aspectRatio: 9/16
     backgroundColor: sky-300
-    hasDetailPage: true
+    hasDetailPage: false
 
   - id: landscape
     title: spring
@@ -33,7 +33,7 @@ pieces:
     hasArrow: false
     aspectRatio: 16/9
     backgroundColor: sky-300
-    hasDetailPage: true
+    hasDetailPage: false
 
   - id: fallen_star
     title: fallen star
@@ -165,6 +165,28 @@ pieces:
     cover: /images/sunny.jpg
     images: []
     description: Print illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: comic2
+    title: comic2
+    cover: /images/comic2.jpg
+    images: []
+    description: Single page comic
+    category: illustration
+    hasArrow: false
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: comic3
+    title: comic3
+    cover: /images/comic3.jpg
+    images: []
+    description: Single page comic
     category: illustration
     hasArrow: false
     aspectRatio: 1/1

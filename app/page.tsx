@@ -1,8 +1,12 @@
+"use client"
+
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import FrameAnimation from "@/components/frame-animation"
 import portfolioData from "@/content/portfolio.yaml"
 import Link from "next/link"
+import ImagePreviewModal from "@/components/image-preview-modal"
+import { useState } from "react"
 
 interface PortfolioPiece {
   id: string;
@@ -20,7 +24,18 @@ interface PortfolioPiece {
 const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
 
 export default function Home() {
-  // const nycHeartbreakMap = portfolioData.pieces.find(piece: => piece.id === 'nyc-heartbreak-map')
+  const [selectedPiece, setSelectedPiece] = useState<PortfolioPiece | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handlePieceClick = (piece: PortfolioPiece) => {
+    setSelectedPiece(piece)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedPiece(null)
+  }
 
   return (
     <div>
@@ -50,7 +65,11 @@ export default function Home() {
             </div>
           </Link>
         ) : (
-          <div key={piece.id} className="border border-gray-200 rounded-md p-2 relative inline-block w-full mt-4">
+          <div
+            key={piece.id}
+            className="border border-gray-200 rounded-md p-2 relative inline-block w-full mt-4 cursor-pointer hover:border-gray-300 transition-colors"
+            onClick={() => handlePieceClick(piece)}
+          >
             <div className="grid grid-cols-2 gap-2">
               <div className="col-span-2">
                   <Image
@@ -70,6 +89,12 @@ export default function Home() {
         )
       ))}
     </div>
+
+    <ImagePreviewModal
+      piece={selectedPiece}
+      isOpen={isModalOpen}
+      onClose={closeModal}
+    />
     </div>
   )
 }
