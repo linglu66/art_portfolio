@@ -23,9 +23,10 @@ most of my work lives somewhere between coming-of-age, connection, and the way t
       <div>
         <p className="text-xl font-semibold mt-8"> exhibitions</p>
         <ul className="text sm">
+            <li>2025 newark zine fest</li>
             <li>2025 SVA print slam</li>
             <li>2025 jersey art book fair</li>
-            <li>2024 zine fest NYC</li>
+            <li>2024 nyc zine fest</li>
         </ul>
       </div>
 

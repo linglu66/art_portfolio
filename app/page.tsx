@@ -6,6 +6,7 @@ import FrameAnimation from "@/components/frame-animation"
 import portfolioData from "@/content/portfolio.yaml"
 import Link from "next/link"
 import ImagePreviewModal from "@/components/image-preview-modal"
+import MasonryGrid from "@/components/masonry-grid"
 import { useState } from "react"
 
 interface PortfolioPiece {
@@ -44,10 +45,10 @@ export default function Home() {
                   height={200}
                   className={`w-full h-full object-cover`}/>
       </div> */}
-    <div className="p-4 columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-      {portfolioData.pieces.map((piece: PortfolioPiece) => (
+    <div className="p-4 columns-1 md:columns-2 lg:columns-3 gap-4">
+      {portfolioData.pieces.map((piece: PortfolioPiece, index: number) => (
         piece.hasDetailPage ? (
-          <Link key={piece.id} href={`/piece/${piece.id}`} className="border border-gray-200 rounded-md p-2 relative inline-block w-full mt-4">
+          <Link key={piece.id} href={`/piece/${piece.id}`} className="border border-gray-200 rounded-md p-2 relative inline-block w-full mb-4 break-inside-avoid hover:border-gray-300 hover:shadow-md transition-all duration-200 hover:-translate-y-1">
             <div className="grid grid-cols-2 gap-2">
               <div className="col-span-2">
                   <Image
@@ -67,7 +68,7 @@ export default function Home() {
         ) : (
           <div
             key={piece.id}
-            className="border border-gray-200 rounded-md p-2 relative inline-block w-full mt-4 cursor-pointer hover:border-gray-300 transition-colors"
+            className="border border-gray-200 rounded-md p-2 relative inline-block w-full mb-4 break-inside-avoid cursor-pointer hover:border-gray-300 hover:shadow-md transition-all duration-200 hover:-translate-y-1"
             onClick={() => handlePieceClick(piece)}
           >
             <div className="grid grid-cols-2 gap-2">

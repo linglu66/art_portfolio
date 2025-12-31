@@ -6,7 +6,7 @@ pieces:
     title: reboot mag
     cover: /images/reboot.png
     images: []
-    description: Digital magazine exploring technology and humanity
+    description: illustration for reboot magazine
     category: publication
     hasArrow: false
     aspectRatio: 3/4
@@ -17,22 +17,22 @@ pieces:
     title: losing dogs
     cover: /images/dog.png
     images: []
-    description: Abstract landscape study
+    description: sticker design
     category: painting
     hasArrow: false
     aspectRatio: 9/16
     backgroundColor: sky-300
     hasDetailPage: false
 
-  - id: landscape
-    title: spring
-    cover: /images/spring.png
+  - id: comic3
+    title: comic dailies #3
+    cover: /images/comic3.jpg
     images: []
-    description: Abstract landscape study
-    category: painting
+    description: single page comic
+    category: illustration
     hasArrow: false
-    aspectRatio: 16/9
-    backgroundColor: sky-300
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
     hasDetailPage: false
 
   - id: fallen_star
@@ -47,29 +47,46 @@ pieces:
 
   
   - id: comic-frames
-    title: (comic)
+    title: comic dailies #1
     cover: /images/comic.png
     images: []
-    description: Sequential art exploring urban isolation
+    description: single page comic
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
     backgroundColor: yellow-100
     hasDetailPage: false
 
-  - id: nyc-heartbreak-map
-    title: nyc heartbreak map
-    cover: /images/hb_map.png
+  - id: the_bear
+    title: the bear
+    cover: /images/the_bear.jpg
     images: []
-    description: A mapping of emotional experiences across New York City
-    category: cartography
+    description: print illustration
+    category: illustration
     hasArrow: false
-    aspectRatio: 16/9
-    backgroundColor: pink-200
+    aspectRatio: 1/1
+    backgroundColor: yellow-50
     hasDetailPage: false
 
+  - id: featherweight
+    title: featherweight // COMIC
+    cover: /images/featherweight.jpg
+    images:
+      - /images/featherweight_p1.jpg
+      - /images/featherweight_p2.jpg
+      - /images/featherweight_p3.jpg
+      - /images/featherweight_p4.jpg
+      - /images/featherweight_p5.jpg
+      - /images/featherweight_p6.jpg
+    description: "multipage comic \n \n a pyschological drama about a tightrope walker and a man who can't let go of his past"
+    category: illustration
+    hasArrow: false
+    aspectRatio: 4/3
+    backgroundColor: gray-100
+    hasDetailPage: true
+
   - id: crossed-wires
-    title: crossed wires
+    title: crossed wires // COMIC
     cover: /images/crossed_wires.png
     images:
       - /images/p1.jpg
@@ -87,28 +104,22 @@ pieces:
     backgroundColor: gray-100
     hasDetailPage: true
 
-  - id: featherweight
-    title: featherweight
-    cover: /images/featherweight.jpg
-    images:
-      - /images/featherweight_p1.jpg
-      - /images/featherweight_p2.jpg
-      - /images/featherweight_p3.jpg
-      - /images/featherweight_p4.jpg
-      - /images/featherweight_p5.jpg
-      - /images/featherweight_p6.jpg
-    description: "multipage comic story"
-    category: illustration
+  - id: nyc-heartbreak-map
+    title: nyc heartbreak map
+    cover: /images/hb_map.png
+    images: []
+    description: a mapping of emotional breakups across new york city
+    category: cartography
     hasArrow: false
-    aspectRatio: 4/3
-    backgroundColor: gray-100
-    hasDetailPage: true
+    aspectRatio: 16/9
+    backgroundColor: pink-200
+    hasDetailPage: false
 
   - id: dont-look
     title: don't look at me, i'm scared
     cover: /images/im_shy.png
     images: []
-    description: Interactive piece on vulnerability and exposure
+    description: interactive piece on vulnerability and exposure
     category: digital
     hasArrow: false
     aspectRatio: 16/9
@@ -120,7 +131,7 @@ pieces:
     title: acnl fish chart
     cover: /images/fish.png
     images: []
-    description: Experimental self-portrait
+    description: i love animal crossing
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
@@ -131,7 +142,7 @@ pieces:
     title: clouds
     cover: /images/rolling_clouds.jpg
     images: []
-    description: Experimental self-portrait
+    description: landscape studies
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
@@ -142,18 +153,7 @@ pieces:
     title: tiger
     cover: /images/tiger.jpg
     images: []
-    description: Print illustration
-    category: illustration
-    hasArrow: false
-    aspectRatio: 1/1
-    backgroundColor: yellow-50
-    hasDetailPage: false
-
-  - id: the_bear
-    title: the bear
-    cover: /images/the_bear.jpg
-    images: []
-    description: Print illustration
+    description: risograph print illustration
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
@@ -164,7 +164,7 @@ pieces:
     title: sunny
     cover: /images/sunny.jpg
     images: []
-    description: Print illustration
+    description: risograph print illustration
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
@@ -172,25 +172,25 @@ pieces:
     hasDetailPage: false
 
   - id: comic2
-    title: comic2
+    title: comic dailies #2
     cover: /images/comic2.jpg
     images: []
-    description: Single page comic
+    description: single page comic
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
     backgroundColor: yellow-50
     hasDetailPage: false
 
-  - id: comic3
-    title: comic3
-    cover: /images/comic3.jpg
+  - id: landscape
+    title: spring
+    cover: /images/spring.png
     images: []
-    description: Single page comic
-    category: illustration
+    description: risograph print illustration
+    category: painting
     hasArrow: false
-    aspectRatio: 1/1
-    backgroundColor: yellow-50
+    aspectRatio: 16/9
+    backgroundColor: sky-300
     hasDetailPage: false
 
 
