@@ -69,15 +69,12 @@ pieces:
     hasDetailPage: false
 
   - id: featherweight
-    title: featherweight // COMIC
+    title: featherweight
     cover: /images/featherweight.jpg
     images:
-      - /images/featherweight_p1.jpg
-      - /images/featherweight_p2.jpg
-      - /images/featherweight_p3.jpg
-      - /images/featherweight_p4.jpg
-      - /images/featherweight_p5.jpg
-      - /images/featherweight_p6.jpg
+      - /images/featherweight_p1
+      - /images/featherweight_p2
+      - /images/featherweight_p3
     description: "multipage comic \n \n a pyschological drama about a tightrope walker and a man who can't let go of his past"
     category: illustration
     hasArrow: false
@@ -86,17 +83,17 @@ pieces:
     hasDetailPage: true
 
   - id: crossed-wires
-    title: crossed wires // COMIC
+    title: crossed wires
     cover: /images/crossed_wires.png
     images:
-      - /images/p1.jpg
-      - /images/p2.jpg
-      - /images/p3.jpg
-      - /images/p4.jpg
-      - /images/p5.jpg
-      - /images/p6.jpg
-      - /images/p7.jpg
-      - /images/p8.jpg
+      - /images/p1
+      - /images/p2
+      - /images/p3
+      - /images/p4
+      - /images/p5
+      - /images/p6
+      - /images/p7
+      - /images/p8
     description: "2 color risograph minicomic in blue and scarlet \n \n a coming of age story and my first comic. printed at SVA risolab"
     category: illustration
     hasArrow: false
@@ -108,7 +105,7 @@ pieces:
     title: nyc heartbreak map
     cover: /images/hb_map.png
     images: []
-    description: a mapping of emotional breakups across new york city
+    description: a mapping of emotional breakups across new york city. sold at rhizome small data market
     category: cartography
     hasArrow: false
     aspectRatio: 16/9

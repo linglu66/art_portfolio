@@ -25,6 +25,17 @@ export default function RootLayout({
         <link rel="icon" href={`${base}/favicon.ico`} />
       </head>
       <body className="bg-white text-gray-900 font-mono text-lg overflow-hidden">
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            @font-face {
+              font-family: 'pixelOp';
+              src: url('${base}/fonts/PixelOperator.woff2') format('woff2');
+              font-weight: 400;
+              font-style: normal;
+              font-display: swap;
+            }
+          `
+        }} />
     <div className="flex flex-col min-h-screen font-mono  ">
        {/* Fixed Header */}
       <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-3 border-b border-gray-200 bg-white z-10">
@@ -59,7 +70,14 @@ export default function RootLayout({
                 <span className="whitespace-nowrap">home</span>
               </Link>
             </div>
-            
+
+            <div className="py-2 flex flex-col items-start">
+              <Link href="/comic" className="hover:underline flex flex-col items-start">
+                <Image src={`${base}/icons/comic.png`} alt="Comics icon" width={48} height={48} className="mb-2" />
+                <span className="whitespace-nowrap">comics</span>
+              </Link>
+            </div>
+
             <div className="py-2 flex flex-col items-start ">
               <Link href="https://www.yourworldoftext.com/~linglu66/" className="hover:underline flex flex-col items-start">
                 <Image src={`${base}/icons/note.png`} alt="Leave note icon" width={48} height={48} className="mb-2" />
@@ -77,7 +95,7 @@ export default function RootLayout({
             <div className="py-2 flex flex-col items-start">
               <Link href="/about" className="hover:underline flex flex-col items-start">
                 <Image src={`${base}/icons/about.png`} alt="About icon" width={48} height={48} className="mb-2" />
-                <span className="whitespace-nowrap">???</span>
+                <span className="whitespace-nowrap">about</span>
               </Link>
             </div>
 

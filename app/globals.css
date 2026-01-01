@@ -14,15 +14,7 @@
 }
 
 
-@font-face {
-  font-family: 'pixelOp';
-  src: url('/art_portfolio/fonts/PixelOperator.woff2') format('woff2');
-  /* src: url('/fonts/PixelOperator.woff2') format('woff2'); */
-
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* Font loaded dynamically in layout.tsx with correct base path */
 /* @font-face {
   font-family: "Mono";
   src: url("/fonts/mono.woff2") format("woff2");
