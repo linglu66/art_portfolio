@@ -75,7 +75,7 @@ pieces:
       - /images/featherweight_p1
       - /images/featherweight_p2
       - /images/featherweight_p3
-    description: "multipage comic \n \n a pyschological drama about a tightrope walker and a man who can't let go of his past"
+    description: "[WIP] multipage comic \n \n a pyschological drama about a tightrope walker and a man who can't let go of his past"
     category: illustration
     hasArrow: false
     aspectRatio: 4/3

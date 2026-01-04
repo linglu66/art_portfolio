@@ -68,7 +68,13 @@ export default function PoweredOffPage() {
 
       // Redirect when loading is complete
       if (loadingProgress === 100) {
-        const redirectPath = typeof window !== "undefined" ? localStorage.getItem("powerOffRedirect") || "/" : "/"
+        let redirectPath = typeof window !== "undefined" ? localStorage.getItem("powerOffRedirect") || "/" : "/"
+
+        // In production, ensure the path includes the base path
+        const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+        if (base && !redirectPath.startsWith(base)) {
+          redirectPath = redirectPath === '/' ? base + '/' : base + redirectPath;
+        }
 
         // Small delay after reaching 100% before redirecting
         setTimeout(() => {

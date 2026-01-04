@@ -22,8 +22,9 @@ export function generateStaticParams() {
   return portfolioData.pieces.map((piece: PortfolioPiece) => ({ id: piece.id }));
 }
 
-export default function PieceDetail({ params }: { params: { id: string } }) {
-  const piece = portfolioData.pieces.find((p: PortfolioPiece) => p.id === params.id);
+export default async function PieceDetail({ params }: { params: { id: string } }) {
+  const { id } = await params;
+  const piece = portfolioData.pieces.find((p: PortfolioPiece) => p.id === id);
   if (!piece) return notFound();
   const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
 

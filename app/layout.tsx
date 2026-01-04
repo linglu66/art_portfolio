@@ -3,12 +3,15 @@
 import type React from "react"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
 import PowerButton from "@/components/power-button"
 import Link from "next/link"
 import "./globals.css"
 import FrameAnimation from "@/components/frame-animation"
 import Marquee from "react-fast-marquee"
+import SpeechBubble from "@/components/speech-bubble"
+import "../node_modules/comicBubbles/dist/cbbl.min.css"
 
 
 const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
@@ -18,6 +21,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const [avatarHovered, setAvatarHovered] = useState(false);
   return (
     <html lang="en">
        <head>
@@ -137,12 +141,21 @@ export default function RootLayout({
             </div> */}
           </nav>
 
-          <Link href="/about" className="block pb-4">
-              <FrameAnimation
-                image1={`${base}/images/anim/me1.png`}
-                image2={`${base}/images/anim/me2.png`}
-                image3={`${base}/images/anim/me3.png`} />
-          </Link>
+          <div className="relative pb-4">
+            <div
+              className="block"
+              onMouseEnter={() => setAvatarHovered(true)}
+              onMouseLeave={() => setAvatarHovered(false)}
+            >
+              <Link href="/about">
+                  <FrameAnimation
+                    image1={`${base}/images/anim/me1.png`}
+                    image2={`${base}/images/anim/me2.png`}
+                    image3={`${base}/images/anim/me3.png`} />
+              </Link>
+            </div>
+            <SpeechBubble isHovered={avatarHovered} />
+          </div>
         </aside>
 
         {/* Main Content */}

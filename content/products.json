@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "crossed-wires-print",
+    "title": "Crossed Wires Comic",
+    "paymentLink": "https://buy.stripe.com/6oU6oH8dN2x82940V57kc01",
+    "price": "$25.00",
+    "inventory": 5,
+    "image": "/images/crossed_wires.png",
+    "description": "16 page risograph comic of Crossed Wires. 5x8 inches on premium paper."
+  },
+  {
+    "slug": "spring-print",
+    "title": "Spring Print",
+    "paymentLink": "https://buy.stripe.com/bJe9ATalVgnY6pkdHR7kc00",
+    "price": "$20.00",
+    "inventory": 3,
+    "image": "/images/spring.png",
+    "description": "Risograph print. 5x8 inches on premium paper."
+  }
+]
