@@ -4,12 +4,12 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 
 const speechTexts = {
-  '/': ['...hello...', 'hm...', 'hover over me for surprises'],
+  '/': ['...hello...', 'hm...', 'welcome... i guess...'],
   '/about': ['ahhhhhhhhh!', 'this is the about page', '...i love making art....'],
   '/shop': ['prints for sale!', 'all items ship free in the US'],
-  '/comic': ['here are my comics', 'sequential art is fun'],
+  '/comic': ['here are my comics', 'sequential art is fun','O__O'],
   '/powered-off': ['system offline', 'power down mode', 'see you later!'],
-  'default': ['stop hovering over me...TT_TT']
+  'default': ['stop hovering over me...O_O']
 };
 
 interface SpeechBubbleProps {
@@ -30,9 +30,10 @@ export default function SpeechBubble({ isHovered }: SpeechBubbleProps) {
       const texts = speechTexts[normalizedPath as keyof typeof speechTexts] || speechTexts.default;
       console.log('Selected texts:', texts);
 
-      // Show first text immediately
-      setCurrentText(texts[0]);
-      setTextIndex(1);
+      // Show random text immediately
+      const randomIndex = Math.floor(Math.random() * texts.length);
+      setCurrentText(texts[randomIndex]);
+      setTextIndex((randomIndex + 1) % texts.length);
 
       // Cycle through texts every 2 seconds
       intervalRef.current = setInterval(() => {
