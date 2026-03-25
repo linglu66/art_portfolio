@@ -1,0 +1,87 @@
+# Creative Technology Projects
+
+projects:
+  - id: froggy-os
+    title: froggy.OS
+    cover: /images/froggy/froggy1.png
+    description: A whimsical 3D file system that explores how we can better leverage our spatial senses for digital organization, designed as if it were a frog's computer
+    category: interactive
+    writeup: |
+      froggy.OS is a project that explores how we can better leverage our spatial senses in a file system through 3D representation. What if navigating files felt more like moving through physical space?
+
+      It's also a whimsical exercise in prioritizing delight over utility. The project asks: how can we have more fun and less utilitarian interactions with our software? What if our digital tools weren't useful at all? The entire interface is themed as if it were a frog's computer - complete with lily pad folders and pond-themed applications.
+
+      The project challenges conventional design patterns by taking the scenic route, choosing impractical outfits, and doing things by hand for the love of it. It's not actually a full operating system (that's just in the name) - it's an exploration of spatial file navigation and a celebration of whimsy in interface design.
+
+      I presented this work at Values Based Software Night, a series of talks hosted by Connie Liu at Ambrook, as part of a talk about reimagining how we interact with our digital environments - exploring what happens when we prioritize joy over efficiency and embrace the delightfully impractical.
+
+    process_images:
+      - /images/froggy/froggy1.png
+      - /images/froggy/froggy2.png
+      - /images/froggy/slide-motivations.png
+      - /images/froggy/slide-joy-over-efficiency.png
+      - /images/froggy/slide-philosophy.png
+      - /images/froggy/slide-padded-room.png
+      - /images/froggy/slide-file-management.png
+      - /images/froggy/presentation-photo.png
+
+    tech_stack: ["React", "Electron", "CSS"]
+
+  - id: emojers
+    title: emojer
+    cover: /images/emojer/emojer.png
+    description: Physical hardware devices that send emoji messages between two people, no matter the distance. Select an emoji on one device and it appears on the other
+    category: hardware
+    writeup: |
+      A pair of physical devices that let you send emoji messages to someone you care about. When you select an emoji on one device, it appears on the other - no matter how far apart you are.
+
+      Built around the concept that the most meaningful digital communication often happens with the simplest gestures. Sometimes a single emoji says more than a paragraph.
+
+    process_images:
+      - /images/emojer/Frame 11.png
+      - /images/emojer/image 22.png
+
+    tech_stack: ["Arduino", "ESP32", "3D Printing"]
+
+  - id: breakup-map-nyc
+    title: Breakup Map NYC
+    cover: /images/lovemap/Cover2.png
+    description: Interactive map collecting anonymous submissions of relationship ending locations across New York City. Originally created for Rhizome's Small Data Market
+    category: data
+    writeup: |
+      An interactive map collecting anonymous submissions of where relationships ended in NYC. Each pin represents a real breakup location with a brief, anonymous story.
+
+      Originally created for Rhizome's Small Data Market, this project explores how we attach emotional significance to geographic spaces.
+
+    process_images:
+      - /images/hb_map.png
+      - /images/lovemap/__.jpg
+      - /images/lovemap/__-1.jpg
+      - /images/lovemap/Desktop - 5.png
+      - /images/lovemap/Frame 43.png
+      - /images/lovemap/Frame 73.png
+
+    tech_stack: ["JavaScript", "Mapbox", "Firebase"]
+
+  - id: anxious-websites
+    title: anxious websites
+    cover: /images/anxious/0322.gif
+    description: A series of websites exploring connections and social feelings through digital interfaces and interaction patterns
+    category: interactive
+    writeup: |
+      A series of websites that explore connections, social feelings, and the emotional dimensions of digital interaction. "Anxious websites" is more of a general name - the work examines how we relate to others and ourselves through technology.
+
+      The project explores how digital interfaces can communicate emotional states and make invisible feelings tangible through interaction. Using ASCII art, animated elements, and responsive behaviors, the websites create digital spaces that feel emotionally charged and socially aware.
+
+      Features include fish that swim across dark and light themes, boolean logic prompts that question connection and isolation ("are we always already connected, even when we think we're alone?"), and interfaces that respond to user presence with emotional sensitivity. The work examines how we project human emotions onto digital environments and how technology can serve as a medium for exploring our social and emotional lives.
+
+    process_images:
+      - /images/anxious/ascii-fish-dark-theme.png
+      - /images/anxious/ascii-fish-light-theme.png
+      - /images/anxious/boolean-math-prompt.png
+      - /images/anxious/fish-animation-dark.gif
+      - /images/anxious/fish-animation-light.gif
+      - /images/anxious/interactive-demo.gif
+
+    tech_stack: ["React", "CSS Animations", "Web APIs"]
+

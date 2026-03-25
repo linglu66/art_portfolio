@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import products from "@/content/products.json"
 
-const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+const base = '';
 
 interface Product {
   slug: string;

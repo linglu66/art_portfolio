@@ -2,100 +2,100 @@
 
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import FrameAnimation from "@/components/frame-animation"
-import portfolioData from "@/content/portfolio.yaml"
 import Link from "next/link"
-import ImagePreviewModal from "@/components/image-preview-modal"
-import MasonryGrid from "@/components/masonry-grid"
-import { useState } from "react"
+import projectsData from "@/content/projects.yaml"
 
-interface PortfolioPiece {
+interface Project {
   id: string;
   title: string;
   cover: string;
-  images: string[];
   description: string;
   category: string;
-  hasArrow: boolean;
-  aspectRatio: string;
-  backgroundColor: string;
-  hasDetailPage: boolean;
+  status?: string;
 }
 
-const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+const base = '';
 
 export default function Home() {
-  const [selectedPiece, setSelectedPiece] = useState<PortfolioPiece | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handlePieceClick = (piece: PortfolioPiece) => {
-    setSelectedPiece(piece)
-    setIsModalOpen(true)
-  }
-
-  const closeModal = () => {
-    setIsModalOpen(false)
-    setSelectedPiece(null)
-  }
-
   return (
-    <div>
-      {/* <div className="h-[90px] md:h-full ">
-        <Image src={`${base}/bunnies.png`} alt="Bunnies" width={300}
-                  height={200}
-                  className={`w-full h-full object-cover`}/>
-      </div> */}
-    <div className="p-4 columns-1 md:columns-2 lg:columns-3 gap-4">
-      {portfolioData.pieces.map((piece: PortfolioPiece, index: number) => (
-        piece.hasDetailPage ? (
-          <Link key={piece.id} href={`/piece/${piece.id}`} className="border border-gray-200 rounded-md p-2 relative inline-block w-full mb-4 break-inside-avoid hover:border-gray-300 hover:shadow-md transition-all duration-200 hover:-translate-y-1">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="col-span-2">
-                  <Image
-                    src={`${base}${piece.cover}`}
-                    width={300}
-                    height={200}
-                    alt={piece.description}
-                    className={`w-full h-auto bg-${piece.backgroundColor} rounded-md`}
-                  />
-              </div>
-            </div>
-            <div className="mt-2 flex justify-between items-center">
-              <div>{piece.title}</div>
-              {piece.hasArrow && <ArrowRight size={18} />}
-            </div>
-          </Link>
-        ) : (
-          <div
-            key={piece.id}
-            className="border border-gray-200 rounded-md p-2 relative inline-block w-full mb-4 break-inside-avoid cursor-pointer hover:border-gray-300 hover:shadow-md transition-all duration-200 hover:-translate-y-1"
-            onClick={() => handlePieceClick(piece)}
-          >
-            <div className="grid grid-cols-2 gap-2">
-              <div className="col-span-2">
-                  <Image
-                    src={`${base}${piece.cover}`}
-                    width={300}
-                    height={200}
-                    alt={piece.description}
-                    className={`w-full h-auto bg-${piece.backgroundColor} rounded-md`}
-                  />
-              </div>
-            </div>
-            <div className="mt-2 flex justify-between items-center">
-              <div>{piece.title}</div>
-              {piece.hasArrow && <ArrowRight size={18} />}
-            </div>
-          </div>
-        )
-      ))}
-    </div>
+    <div className="flex h-full overflow-hidden">
+      {/* Left content - fixed, no scroll */}
+      <div className="flex-1 p-8 flex flex-col justify-start pt-24 overflow-hidden">
+        {/* Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">ling lu</h1>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            I'm a creative technologist and artist based in New York. I make interactive experiences, hardware devices, and printed matter — things that use the language of technology to talk about something softer. Formerly a product designer at Stripe and Cash App.
+          </p>
+        </div>
+      </div>
 
-    <ImagePreviewModal
-      piece={selectedPiece}
-      isOpen={isModalOpen}
-      onClose={closeModal}
-    />
+      {/* Right scrollable projects column - now half width */}
+      <div className="w-1/2 border-l border-gray-200 bg-gray-50 flex flex-col">
+        <div className="bg-gray-50 p-4 border-b border-gray-200 flex-shrink-0">
+          <h2 className="font-semibold text-gray-900">Projects</h2>
+        </div>
+        <div className="overflow-y-auto flex-1">
+          <div className="p-4 space-y-4">
+            {projectsData.projects.map((project: Project) => (
+              <Link
+                key={project.id}
+                href={`/projects/${project.id}`}
+                className="group block border border-gray-200 rounded-lg overflow-hidden bg-white hover:border-gray-300 hover:shadow-md transition-all duration-200 hover:-translate-y-1"
+              >
+                {project.id === 'breakup-map-nyc' ? (
+                  <div className="w-full relative">
+                    <Image
+                      src={`${base}${project.cover}`}
+                      width={400}
+                      height={0}
+                      alt={project.title}
+                      className="w-full h-auto"
+                      style={{ height: 'auto' }}
+                    />
+                    {project.status === 'in_development' && (
+                      <div className="absolute top-3 left-3 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                        In development
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className={`relative ${project.id === 'anxious-websites' ? 'h-[400px]' : 'aspect-[4/3]'}`}>
+                    <Image
+                      src={`${base}${project.cover}`}
+                      fill
+                      alt={project.title}
+                      className="object-cover"
+                    />
+                    {project.status === 'in_development' && (
+                      <div className="absolute top-3 left-3 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                        In development
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div className="p-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-base font-semibold group-hover:text-blue-600 transition-colors">
+                      {project.title}
+                    </h3>
+                    <ArrowRight size={16} className="text-gray-400 group-hover:text-blue-600 transition-colors flex-shrink-0 ml-2" />
+                  </div>
+
+                  <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="text-xs text-gray-500 uppercase tracking-wide">
+                    {project.category}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

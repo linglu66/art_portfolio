@@ -20,7 +20,7 @@ interface PortfolioPiece {
   hasDetailPage: boolean;
 }
 
-const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+const base = '';
 
 export default function ComicPage() {
   const [selectedPiece, setSelectedPiece] = useState<PortfolioPiece | null>(null)

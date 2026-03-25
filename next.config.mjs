@@ -8,7 +8,7 @@ const nextConfig = {
   trailingSlash: true, // optional, makes routing cleaner on GitHub Pages
   // basePath: isProd ? '/art_portfolio' : '' used to be for github pages
   basePath: '',
-  assetPrefix: isProd ? '/art_portfolio' : '',
+  assetPrefix: '',
 
 
   eslint: {

@@ -71,7 +71,7 @@ export default function PoweredOffPage() {
         let redirectPath = typeof window !== "undefined" ? localStorage.getItem("powerOffRedirect") || "/" : "/"
 
         // In production, ensure the path includes the base path
-        const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+        const base = '';
         if (base && !redirectPath.startsWith(base)) {
           redirectPath = redirectPath === '/' ? base + '/' : base + redirectPath;
         }

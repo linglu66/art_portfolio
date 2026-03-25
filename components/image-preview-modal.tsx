@@ -23,7 +23,7 @@ interface ImagePreviewModalProps {
   onClose: () => void;
 }
 
-const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+const base = '';
 
 export default function ImagePreviewModal({
   piece,

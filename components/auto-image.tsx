@@ -11,7 +11,7 @@ interface AutoImageProps {
   className?: string;
 }
 
-const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+const base = '';
 
 export default function AutoImage({ baseSrc, width, height, alt, className }: AutoImageProps) {
   const [currentSrc, setCurrentSrc] = useState(`${base}${baseSrc}.jpg`);

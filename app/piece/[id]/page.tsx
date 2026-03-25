@@ -26,7 +26,7 @@ export default async function PieceDetail({ params }: { params: { id: string } }
   const { id } = await params;
   const piece = portfolioData.pieces.find((p: PortfolioPiece) => p.id === id);
   if (!piece) return notFound();
-  const base = process.env.NODE_ENV === 'production' ? '/art_portfolio' : '';
+  const base = '';
 
   return (
     <div className="flex flex-col md:flex-row gap-8 p-8">
