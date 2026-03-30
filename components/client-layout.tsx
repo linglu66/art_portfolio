@@ -46,8 +46,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       </div>
 
       <div className="flex flex-1 pt-16">
-        {/* Fixed Sidebar */}
-        <aside className="fixed pt-1 top-16 left-0 bottom-0 w-[160px] border-r border-gray-200 bg-white z-10 overflow-y-auto flex flex-col justify-between">
+        {/* Sidebar - vertical on desktop, horizontal on mobile */}
+        <aside className="fixed pt-1 top-16 left-0 bottom-0 w-[160px] border-r border-gray-200 bg-white z-10 overflow-y-auto flex-col justify-between hidden md:flex">
           <nav className="p-4 space-y-4">
             <div className="py-2 flex flex-col items-start">
               <Link href="/" className="hover:underline flex flex-col items-start">
@@ -85,7 +85,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             </div>
           </nav>
 
-          <div className="relative pb-4">
+          <div className="relative pb-4 hidden md:block">
             <div
               className="block"
               onMouseEnter={() => setAvatarHovered(true)}
@@ -102,19 +102,43 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </div>
         </aside>
 
+        {/* Mobile horizontal nav - sits below header + marquee */}
+        <nav className="fixed top-[74px] left-0 right-0 bg-white border-b border-gray-200 z-10 grid grid-cols-5 md:hidden px-2 py-1">
+          <Link href="/" className="hover:underline flex flex-col items-center justify-end gap-0.5">
+            <Image src={`${base}/icons/home.png`} alt="Home" width={24} height={24} />
+            <span className="text-xs">home</span>
+          </Link>
+          <Link href="/drawings" className="hover:underline flex flex-col items-center justify-end gap-0.5">
+            <Image src={`${base}/icons/about.png`} alt="Drawings" width={24} height={24} />
+            <span className="text-xs">drawings</span>
+          </Link>
+          <Link href="https://www.yourworldoftext.com/~linglu66/" className="hover:underline flex flex-col items-center justify-end gap-0.5">
+            <Image src={`${base}/icons/comic.png`} alt="Note" width={24} height={24} />
+            <span className="text-xs">note</span>
+          </Link>
+          <Link href="/shop" className="hover:underline flex flex-col items-center justify-end gap-0.5">
+            <Image src={`${base}/icons/shop.png`} alt="Shop" width={24} height={24} />
+            <span className="text-xs">shop</span>
+          </Link>
+          <Link href="/about" className="hover:underline flex flex-col items-center justify-end gap-0.5">
+            <Image src={`${base}/icons/note.png`} alt="About" width={24} height={24} />
+            <span className="text-xs">about</span>
+          </Link>
+        </nav>
+
         {/* Main Content */}
-        <main className="flex-1 ml-[160px] overflow-y-auto h-[calc(100vh-4rem)]">
+        <main className="flex-1 ml-0 md:ml-[160px] mt-14 md:mt-0 overflow-y-auto h-[calc(100vh-4rem)]">
           {children}
         </main>
       </div>
 
-      {/* Desktop widgets - only show on homepage */}
+      {/* Desktop widgets - only show on homepage, hidden on mobile */}
       {isHomePage && (
-        <>
+        <div className="hidden md:contents">
           <EmailSignupModule />
           <StickyNoteWidget />
           <CalendarWidget />
-        </>
+        </div>
       )}
     </div>
   );

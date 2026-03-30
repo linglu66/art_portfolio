@@ -23,10 +23,10 @@ export default function PoweredOffPage() {
       inputRef.current.focus()
     }
 
-    // Show hint after 5 seconds
+    // Show hint after 1.5 seconds
     const timer = setTimeout(() => {
       setShowHint(true)
-    }, 3000)
+    }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
@@ -130,7 +130,7 @@ export default function PoweredOffPage() {
 
             {/* Sticky note with password hint */}
             {showHint && (
-              <div className="absolute top-0 right-0 -mt-16 -mr-16 w-48 h-48 bg-yellow-200 text-black p-4 rotate-12 shadow-lg transform transition-all duration-500 ease-in-out">
+              <div className="mt-8 mx-auto md:absolute md:top-0 md:right-0 md:-mt-16 md:-mr-16 w-48 h-48 bg-yellow-200 text-black p-4 rotate-12 shadow-lg transform transition-all duration-500 ease-in-out">
                 <div className="w-full h-full flex items-center justify-center flex-col">
                   <p className="text-sm font-handwritten">password:</p>
                   <p className="text-lg font-handwritten font-bold">lovergirl</p>

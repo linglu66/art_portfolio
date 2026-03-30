@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import photosData from '../../content/birthday-photos.json'
 
 const CATEGORIES = [
@@ -11,34 +11,27 @@ const CATEGORIES = [
   { key: 'home_cooked', label: 'Home-Cooked Meals' },
 ]
 
+const INITIAL_VOTES: Record<string, number> = {
+  exercise_hours: 36,
+  vegetables: 6,
+  books: 40,
+  paintings: 50,
+  home_cooked: 32,
+}
+
 function getMemeUrl(slot: number) {
   const ext = slot + 1 === 6 ? 'png' : 'jpg'
   return `/birthday2026/memes/meme_${slot + 1}.${ext}`
 }
 
 export default function Birthday2026() {
-  const [votes, setVotes] = useState<Record<string, number>>({
-    exercise_hours: 0, vegetables: 0, books: 0, paintings: 0, home_cooked: 0,
-  })
+  const [votes, setVotes] = useState<Record<string, number>>({ ...INITIAL_VOTES })
   const [bumped, setBumped] = useState<string | null>(null)
 
-  useEffect(() => {
-    fetch('/api/votes').then(r => r.json()).then(setVotes).catch(() => {})
-  }, [])
-
-  async function castVote(key: string) {
+  function castVote(key: string) {
     setVotes(v => ({ ...v, [key]: (v[key] || 0) + 1 }))
     setBumped(key)
     setTimeout(() => setBumped(null), 300)
-    try {
-      const res = await fetch('/api/votes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ category: key }),
-      })
-      const updated = await res.json()
-      if (!updated.error) setVotes(updated)
-    } catch {}
   }
 
   const photos = [...photosData].reverse()
@@ -64,11 +57,19 @@ export default function Birthday2026() {
         .gallery-card { border: 2px solid; border-color: #808080 #fff #fff #808080; background: #c0c0c0; }
         @keyframes bump { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
         .bumped { animation: bump 0.3s; }
+        .bday-layout { display: flex; gap: 8px; min-height: calc(100vh - 16px); }
+        .bday-voting { width: 380px; min-width: 380px; display: flex; flex-direction: column; }
+        .bday-gallery { flex: 1; display: flex; flex-direction: column; }
+        @media (max-width: 860px) {
+          .bday-layout { flex-direction: column; min-height: auto; }
+          .bday-voting { width: 100% !important; min-width: 0 !important; }
+          .bday-gallery { min-height: 80vh; }
+        }
       `}</style>
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', gap: 8, minHeight: 'calc(100vh - 16px)' }}>
+      <div className="bday-layout">
         {/* VOTING WINDOW */}
-        <div className="win-border" style={{ width: 380, minWidth: 380, display: 'flex', flexDirection: 'column' }}>
+        <div className="win-border bday-voting">
           <div className="title-bar">
             <span>GOALS.EXE - before_i_turn_29.txt</span>
             <div style={{ display: 'flex', gap: 2 }}>
@@ -102,8 +103,8 @@ export default function Birthday2026() {
 |  ~  ~  ~  |
 |___________|
 |_____________|`}</pre>
-            <div style={{ fontFamily: "'VT323', monospace", fontSize: '2rem', marginBottom: 4 }}>BEFORE I TURN 29:</div>
-            <div style={{ color: '#555', fontSize: 11, marginBottom: 16, borderBottom: '1px dashed #c0c0c0', paddingBottom: 12 }}>&lt;-- click to increment --&gt;</div>
+            <div style={{ fontFamily: "'VT323', monospace", fontSize: '1.8rem', marginBottom: 4 }}>THE PEOPLE HAVE VOTED:</div>
+            <div style={{ fontSize: 11, marginBottom: 16, borderBottom: '1px dashed #c0c0c0', paddingBottom: 12 }}>Things I will do on my 28th year.</div>
             {CATEGORIES.map((cat, idx) => (
               <div key={cat.key}>
                 <div className="vote-row" onClick={() => castVote(cat.key)}>
@@ -125,7 +126,7 @@ export default function Birthday2026() {
         </div>
 
         {/* GALLERY WINDOW */}
-        <div className="win-border" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <div className="win-border bday-gallery">
           <div className="title-bar">
             <span>GALLERY.EXE - meme_recreations/</span>
             <div style={{ display: 'flex', gap: 2 }}>
@@ -147,7 +148,7 @@ export default function Birthday2026() {
             </div>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
               gap: 12,
               alignContent: 'start',
             }}>

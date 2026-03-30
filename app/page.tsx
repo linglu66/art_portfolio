@@ -18,9 +18,9 @@ const base = '';
 
 export default function Home() {
   return (
-    <div className="flex h-full overflow-hidden">
-      {/* Left content - fixed, no scroll */}
-      <div className="flex-1 p-8 flex flex-col justify-start pt-24 overflow-hidden">
+    <div className="flex flex-col md:flex-row md:h-full overflow-auto md:overflow-hidden">
+      {/* Left content */}
+      <div className="flex-none md:flex-1 p-6 md:p-8 flex flex-col justify-start pt-8 md:pt-24 overflow-visible md:overflow-hidden">
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">ling lu</h1>
@@ -30,8 +30,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Right scrollable projects column - now half width */}
-      <div className="w-1/2 border-l border-gray-200 bg-gray-50 flex flex-col">
+      {/* Right scrollable projects column - full width on mobile, half on desktop */}
+      <div className="w-full md:w-1/2 border-t md:border-t-0 md:border-l border-gray-200 bg-gray-50 flex flex-col">
         <div className="bg-gray-50 p-4 border-b border-gray-200 flex-shrink-0">
           <h2 className="font-semibold text-gray-900">Projects</h2>
         </div>

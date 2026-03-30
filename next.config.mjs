@@ -4,7 +4,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  // output: 'export',  // disabled for Vercel (needs API routes)
+  output: 'export',
   trailingSlash: true,
   // basePath: isProd ? '/art_portfolio' : '' used to be for github pages
   basePath: '',
