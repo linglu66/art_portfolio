@@ -4,8 +4,8 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  output: 'export',  // enables static export mode
-  trailingSlash: true, // optional, makes routing cleaner on GitHub Pages
+  // output: 'export',  // disabled for Vercel (needs API routes)
+  trailingSlash: true,
   // basePath: isProd ? '/art_portfolio' : '' used to be for github pages
   basePath: '',
   assetPrefix: '',
@@ -21,6 +21,7 @@ const nextConfig = {
     unoptimized: true,
   },
   
+  turbopack: {},
   webpack: (config) => {
     config.module.rules.push({
       test: /\.ya?ml$/,
