@@ -2,14 +2,25 @@
 
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
+import EmailSignupForm from "@/components/email-signup-form"
 
 export default function EmailSignupModule() {
   const [isDragging, setIsDragging] = useState(false)
-  const [position, setPosition] = useState({ x: 458, y: 619 })
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(null)
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
-  const [email, setEmail] = useState("")
+  const [isClosed, setIsClosed] = useState(false)
+
+  // Center on first render; can't do this at useState time since window
+  // doesn't exist during static export prerendering
+  useEffect(() => {
+    setPosition({
+      x: Math.max(8, window.innerWidth / 2 - 200),
+      y: Math.max(8, window.innerHeight / 2 - 140),
+    })
+  }, [])
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    if (!position) return
     setIsDragging(true)
     setDragOffset({
       x: e.clientX - position.x,
@@ -42,15 +53,11 @@ export default function EmailSignupModule() {
     }
   }, [isDragging, dragOffset])
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Email signup:', email)
-    // TODO: Implement actual email signup
-  }
+  if (isClosed || !position) return null
 
   return (
     <div
-      className="fixed z-50 bg-gray-100 border border-gray-400 select-none"
+      className="fixed z-50 bg-gray-100 border border-gray-400 select-none max-w-[calc(100vw-16px)]"
       style={{
         left: position.x,
         top: position.y,
@@ -70,7 +77,10 @@ export default function EmailSignupModule() {
           <div className="w-4 h-4 bg-gray-300 border border-gray-500"></div>
           <span className="font-bold">fishlooker.exe</span>
         </div>
-        <button className="w-4 h-4 bg-gray-300 border border-gray-500 flex items-center justify-center hover:bg-gray-400">
+        <button
+          onClick={() => setIsClosed(true)}
+          className="w-4 h-4 bg-gray-300 border border-gray-500 flex items-center justify-center hover:bg-gray-400 text-black"
+        >
           <X size={10} />
         </button>
       </div>
@@ -94,25 +104,7 @@ export default function EmailSignupModule() {
               Content: projects, prints, kits
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                required
-                className="w-full px-2 py-1 border border-gray-400 text-xs font-mono"
-              />
-
-              <div className="flex gap-2 justify-end">
-                <button
-                  type="submit"
-                  className="px-4 py-1 border border-gray-400 bg-gray-200 text-xs hover:bg-gray-300"
-                >
-                  Allow
-                </button>
-              </div>
-            </form>
+            <EmailSignupForm />
           </div>
         </div>
       </div>

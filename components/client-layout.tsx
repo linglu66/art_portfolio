@@ -19,7 +19,7 @@ const base = '';
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [avatarHovered, setAvatarHovered] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === '/creative-tech';
 
   return (
     <div className="flex flex-col min-h-screen font-mono">
@@ -57,15 +57,15 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             </div>
 
             <div className="py-2 flex flex-col items-start">
-              <Link href="/drawings" className="hover:underline flex flex-col items-start">
-                <Image src={`${base}/icons/about.png`} alt="Drawings icon" width={48} height={48} className="mb-2" />
-                <span className="whitespace-nowrap">drawings</span>
+              <Link href="/comic" className="hover:underline flex flex-col items-start">
+                <Image src={`${base}/icons/comic.png`} alt="Comic icon" width={48} height={48} className="mb-2" />
+                <span className="whitespace-nowrap">comic</span>
               </Link>
             </div>
 
             <div className="py-2 flex flex-col items-start">
               <Link href="https://www.yourworldoftext.com/~linglu66/" className="hover:underline flex flex-col items-start">
-                <Image src={`${base}/icons/comic.png`} alt="Leave note icon" width={48} height={48} className="mb-2" />
+                <Image src={`${base}/icons/note.png`} alt="Leave note icon" width={48} height={48} className="mb-2" />
                 <span className="whitespace-nowrap">note</span>
               </Link>
             </div>
@@ -108,12 +108,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <Image src={`${base}/icons/home.png`} alt="Home" width={24} height={24} />
             <span className="text-xs">home</span>
           </Link>
-          <Link href="/drawings" className="hover:underline flex flex-col items-center justify-end gap-0.5">
-            <Image src={`${base}/icons/about.png`} alt="Drawings" width={24} height={24} />
-            <span className="text-xs">drawings</span>
+          <Link href="/comic" className="hover:underline flex flex-col items-center justify-end gap-0.5">
+            <Image src={`${base}/icons/comic.png`} alt="Comic" width={24} height={24} />
+            <span className="text-xs">comic</span>
           </Link>
           <Link href="https://www.yourworldoftext.com/~linglu66/" className="hover:underline flex flex-col items-center justify-end gap-0.5">
-            <Image src={`${base}/icons/comic.png`} alt="Note" width={24} height={24} />
+            <Image src={`${base}/icons/note.png`} alt="Note" width={24} height={24} />
             <span className="text-xs">note</span>
           </Link>
           <Link href="/shop" className="hover:underline flex flex-col items-center justify-end gap-0.5">

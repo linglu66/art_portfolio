@@ -46,7 +46,7 @@ export default function ComicPage() {
 
   return (
     <div>
-      <div className="p-4 columns-1 md:columns-2 lg:columns-3 gap-4">
+      <div className="p-4 columns-1 md:columns-2 gap-4">
         {comicPieces.map((piece: PortfolioPiece) => (
           piece.hasDetailPage ? (
             <Link key={piece.id} href={`/piece/${piece.id}`} className="border border-gray-200 rounded-md p-2 relative inline-block w-full mb-4 break-inside-avoid hover:border-gray-300 hover:shadow-md transition-all duration-200 hover:-translate-y-1">
