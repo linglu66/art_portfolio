@@ -1,20 +1,42 @@
 [
   {
-    "slug": "crossed-wires-print",
-    "title": "Crossed Wires Comic",
-    "paymentLink": "https://buy.stripe.com/6oU6oH8dN2x82940V57kc01",
+    "slug": "reaching-talisman",
+    "title": "Reaching Talisman",
     "price": "$25.00",
-    "inventory": 5,
-    "image": "/images/crossed_wires.png",
-    "description": "16 page risograph comic of Crossed Wires. 5x8 inches on premium paper."
+    "inventory": 10,
+    "image": "/images/product_photos/reaching_product.png",
+    "description": "Reaching talisman print, matted. Risograph on premium paper."
   },
   {
-    "slug": "spring-print",
-    "title": "Spring Print",
-    "paymentLink": "https://buy.stripe.com/bJe9ATalVgnY6pkdHR7kc00",
+    "slug": "grounding-talisman",
+    "title": "Grounding Talisman",
+    "price": "$25.00",
+    "inventory": 10,
+    "image": "/images/product_photos/grounding_product.png",
+    "description": "Grounding talisman print, matted. Risograph on premium paper."
+  },
+  {
+    "slug": "serenity-talisman",
+    "title": "Serenity Talisman",
+    "price": "$25.00",
+    "inventory": 10,
+    "image": "/images/serenity_placed.png",
+    "description": "Serenity talisman print, matted. Risograph on premium paper."
+  },
+  {
+    "slug": "fish-poster",
+    "title": "Fish of Animal Crossing Poster",
+    "price": "$30.00",
+    "inventory": 10,
+    "image": "/images/product_photos/animal_crossing.png",
+    "description": "Every fish in Animal Crossing, illustrated as a full chart. Poster print."
+  },
+  {
+    "slug": "apple-worm",
+    "title": "Apple Worm Print",
     "price": "$20.00",
-    "inventory": 3,
-    "image": "/images/spring.png",
-    "description": "Risograph print. 5x8 inches on premium paper."
+    "inventory": 10,
+    "image": "/images/apple_worm.png",
+    "description": "Apple worm illustration. Print on premium paper."
   }
 ]
