@@ -20,8 +20,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  
-  turbopack: {},
+
   webpack: (config) => {
     config.module.rules.push({
       test: /\.ya?ml$/,
