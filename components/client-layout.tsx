@@ -103,7 +103,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         </aside>
 
         {/* Mobile horizontal nav - sits below header + marquee */}
-        <nav className="fixed top-[74px] left-0 right-0 bg-white border-b border-gray-200 z-10 grid grid-cols-5 md:hidden px-2 py-1">
+        <nav className="fixed top-[74px] left-0 right-0 h-[51px] bg-white border-b border-gray-200 z-10 grid grid-cols-5 md:hidden px-2 py-1">
           <Link href="/" className="hover:underline flex flex-col items-center justify-end gap-0.5">
             <Image src={`${base}/icons/home.png`} alt="Home" width={24} height={24} />
             <span className="text-xs">home</span>
@@ -127,7 +127,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         </nav>
 
         {/* Main Content */}
-        <main className="flex-1 ml-0 md:ml-[160px] mt-14 md:mt-0 overflow-y-auto h-[calc(100vh-4rem)]">
+        {/* Mobile chrome: 48px header + 26px marquee + 51px nav = 125px; wrapper pt-16 covers 64 of it.
+            dvh (not vh) so the collapsing mobile URL bar doesn't push the bottom offscreen. */}
+        <main className="flex-1 ml-0 md:ml-[160px] mt-[61px] md:mt-0 overflow-y-auto h-[calc(100dvh-125px)] md:h-[calc(100dvh-4rem)]">
           {children}
         </main>
       </div>

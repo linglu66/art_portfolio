@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import portfolioData from "@/content/portfolio.yaml"
 
@@ -19,6 +19,22 @@ const HOLD_OVERSHOOT = 45
 export default function ArtLoader() {
   const [index, setIndex] = useState(0)
   const [progress, setProgress] = useState(0)
+  // Some covers are multi-MB; on slow connections the bar must wait for the
+  // real download or the pane cycles past images that never got to render
+  const loadedRef = useRef(false)
+
+  useEffect(() => {
+    loadedRef.current = false
+    const img = new window.Image()
+    img.onload = () => { loadedRef.current = true }
+    img.onerror = () => { loadedRef.current = true }
+    img.src = pieces[index].cover
+    if (img.complete) loadedRef.current = true
+    return () => {
+      img.onload = null
+      img.onerror = null
+    }
+  }, [index])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,8 +43,10 @@ export default function ArtLoader() {
           setIndex((i) => (i + 1) % pieces.length)
           return 0
         }
-        // lurch forward in uneven chunks like a real old installer
-        return p + 3 + Math.floor(Math.random() * 12)
+        // lurch forward in uneven chunks like a real old installer,
+        // but stall at 96% until the artwork has actually downloaded
+        const next = p + 3 + Math.floor(Math.random() * 12)
+        return loadedRef.current ? next : Math.min(next, 96)
       })
     }, TICK_MS)
     return () => clearInterval(timer)
