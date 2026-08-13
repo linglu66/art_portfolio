@@ -4,7 +4,9 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  output: 'export',
+  // No `output: 'export'` on this branch — Vercel serves this dynamically so
+  // API routes and server rendering work. `main` keeps static export for the
+  // GitHub Pages build.
   trailingSlash: true,
   // basePath: isProd ? '/art_portfolio' : '' used to be for github pages
   basePath: '',
