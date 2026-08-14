@@ -4,12 +4,18 @@ import Image from "next/image"
 import { useState } from "react"
 import { ShoppingBag, X } from "lucide-react"
 import { formatCents, useCart } from "@/components/cart-context"
-import { getProduct, SHIPPING_CENTS } from "@/lib/products"
+import { getProduct, isFreeShippingCode, SHIPPING_CENTS } from "@/lib/products"
 
 export default function CartDrawer() {
   const { lines, setQuantity, remove, count, subtotalCents, isOpen, setOpen } = useCart()
   const [checkingOut, setCheckingOut] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [promoCode, setPromoCode] = useState("")
+
+  // Display only — the server re-checks the code and decides what is charged.
+  const freeShipping = isFreeShippingCode(promoCode)
+  const shippingCents = freeShipping ? 0 : SHIPPING_CENTS
+  const hasItems = lines.length > 0
 
   async function checkout() {
     setCheckingOut(true)
@@ -20,7 +26,7 @@ export default function CartDrawer() {
       const res = await fetch("/api/checkout/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lines }),
+        body: JSON.stringify({ lines, promoCode }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Checkout failed")
@@ -108,19 +114,44 @@ export default function CartDrawer() {
             </div>
 
             <div className="border-t border-gray-200 p-4">
+              <div className="flex gap-2 mb-3">
+                <input
+                  value={promoCode}
+                  onChange={(e) => setPromoCode(e.target.value)}
+                  placeholder="promo code"
+                  aria-label="Promo code"
+                  className="flex-1 min-w-0 border border-gray-300 rounded px-2 py-1 text-sm uppercase placeholder:normal-case placeholder:text-gray-400"
+                />
+                {promoCode.trim() !== "" && (
+                  <span
+                    className={`text-xs self-center ${freeShipping ? "text-green-700" : "text-gray-500"}`}
+                  >
+                    {freeShipping ? "applied" : "not valid"}
+                  </span>
+                )}
+              </div>
+
               <div className="flex justify-between text-sm text-gray-600">
                 <span>subtotal</span>
                 <span>{formatCents(subtotalCents)}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-600 mb-2">
                 <span>shipping</span>
-                <span>{lines.length === 0 ? "—" : formatCents(SHIPPING_CENTS)}</span>
+                <span>
+                  {!hasItems ? (
+                    "—"
+                  ) : freeShipping ? (
+                    <>
+                      <s className="text-gray-400 mr-1">{formatCents(SHIPPING_CENTS)}</s>free
+                    </>
+                  ) : (
+                    formatCents(SHIPPING_CENTS)
+                  )}
+                </span>
               </div>
               <div className="flex justify-between mb-3 font-semibold">
                 <span>total</span>
-                <span>
-                  {formatCents(subtotalCents + (lines.length === 0 ? 0 : SHIPPING_CENTS))}
-                </span>
+                <span>{formatCents(subtotalCents + (hasItems ? shippingCents : 0))}</span>
               </div>
               {error && <p className="text-sm text-red-600 mb-2">{error}</p>}
               <button

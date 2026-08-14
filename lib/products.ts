@@ -26,6 +26,23 @@ export const products = productsData as Product[]
  */
 export const SHIPPING_CENTS = 700
 
+/**
+ * Codes that waive shipping. Add or remove entries here and redeploy.
+ * Stripe coupons discount line items rather than shipping, so this is handled
+ * when the Checkout Session is built instead.
+ */
+const FREE_SHIPPING_CODES = ["FREESHIP", "MARKET"]
+
+/** Case- and whitespace-insensitive. Returns false for anything unrecognised. */
+export function isFreeShippingCode(code: unknown): boolean {
+  if (typeof code !== "string") return false
+  return FREE_SHIPPING_CODES.includes(code.trim().toUpperCase())
+}
+
+export function shippingCentsFor(code: unknown): number {
+  return isFreeShippingCode(code) ? 0 : SHIPPING_CENTS
+}
+
 export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug)
 }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
-import { getProduct, priceIdFor, SHIPPING_CENTS, stripeModeForKey } from "@/lib/products"
+import { getProduct, priceIdFor, shippingCentsFor, stripeModeForKey } from "@/lib/products"
 
 interface IncomingLine {
   slug: unknown
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
   const mode = stripeModeForKey(secretKey)
 
-  let body: { lines?: IncomingLine[] }
+  let body: { lines?: IncomingLine[]; promoCode?: unknown }
   try {
     body = await req.json()
   } catch {
@@ -71,6 +71,10 @@ export async function POST(req: NextRequest) {
     lineItems.push({ quantity, price: priceId })
   }
 
+  // Shipping is resolved from the code on the server. A client claiming free
+  // shipping without a valid code simply pays the normal rate.
+  const shippingCents = shippingCentsFor(body.promoCode)
+
   const stripe = new Stripe(secretKey)
 
   try {
@@ -84,8 +88,8 @@ export async function POST(req: NextRequest) {
         {
           shipping_rate_data: {
             type: "fixed_amount",
-            fixed_amount: { amount: SHIPPING_CENTS, currency: "usd" },
-            display_name: "Standard shipping",
+            fixed_amount: { amount: shippingCents, currency: "usd" },
+            display_name: shippingCents === 0 ? "Free shipping" : "Standard shipping",
           },
         },
       ],
