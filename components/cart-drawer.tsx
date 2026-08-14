@@ -65,12 +65,13 @@ export default function CartDrawer() {
                 if (!product) return null
                 return (
                   <div key={line.slug} className="flex gap-3">
-                    <div className="relative w-16 h-16 shrink-0 bg-gray-100 rounded">
+                    <div className="relative w-16 h-16 shrink-0 bg-gray-50 rounded">
                       <Image
                         src={product.image}
                         alt={product.title}
                         fill
-                        className="object-cover rounded"
+                        sizes="64px"
+                        className="object-contain rounded"
                       />
                     </div>
                     <div className="flex-1 min-w-0">

@@ -26,12 +26,16 @@ export default function ShopPage() {
               key={product.slug}
               className="border border-gray-300 rounded-lg p-4 flex flex-col h-full"
             >
-              <div className="aspect-square relative mb-4 bg-gray-100 rounded">
+              {/* Taller than wide, and object-contain rather than cover: the
+                  prints range from 5x15 to 11x17 to square, so any fixed crop
+                  cuts someone's artwork off. */}
+              <div className="aspect-[3/4] relative mb-4 bg-gray-50 rounded">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  className="object-cover rounded"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  className="object-contain rounded"
                 />
               </div>
 

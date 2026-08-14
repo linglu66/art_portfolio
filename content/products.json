@@ -106,5 +106,17 @@
     "inventory": 15,
     "image": "/images/product_photos/double_clover.png",
     "description": "Double clover illustration. Limited run of 15. Risograph printed, 7.5 x 5.8 inches."
+  },
+  {
+    "slug": "live-test",
+    "title": "Test Item \u2014 please ignore",
+    "priceIds": {
+      "test": "",
+      "live": "price_1U4QzUGWYyY2k4ZoseheYxrm"
+    },
+    "price": "$1.00",
+    "inventory": 3,
+    "image": "/images/product_photos/duckgrid.png",
+    "description": "Temporary listing used to verify checkout. Not a real product \u2014 this will be removed."
   }
 ]
