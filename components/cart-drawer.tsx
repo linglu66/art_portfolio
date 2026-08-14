@@ -71,7 +71,7 @@ export default function CartDrawer() {
                         alt={product.title}
                         fill
                         sizes="64px"
-                        className="object-contain rounded"
+                        className="object-cover rounded"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
