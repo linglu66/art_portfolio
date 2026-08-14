@@ -11,7 +11,7 @@
   {
     "slug": "grounding-talisman",
     "title": "Grounding Talisman",
-    "priceIds": { "test": "", "live": "price_1U40X4GWYyY2k4ZoWs6GpttI" },
+    "priceIds": { "test": "price_1U4NBxGWYyY2k4Zo71KBW9jv", "live": "price_1U40X4GWYyY2k4ZoWs6GpttI" },
     "price": "$25.00",
     "inventory": 10,
     "image": "/images/product_photos/grounding_product.png",
