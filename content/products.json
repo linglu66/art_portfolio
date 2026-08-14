@@ -9,7 +9,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/product_photos/reaching_3.JPG",
-    "description": "Reaching talisman print in red, matted. Risograph on premium paper."
+    "description": "Reaching talisman print in red, matted. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "reaching-talisman-pinkblue",
@@ -21,7 +21,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/product_photos/reaching_ver2.jpg",
-    "description": "Reaching talisman print in pink and blue, matted. Risograph on premium paper."
+    "description": "Reaching talisman print in pink and blue, matted. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "grounding-talisman",
@@ -33,7 +33,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/product_photos/grounding_2.JPG",
-    "description": "Grounding talisman print, matted. Risograph on premium paper."
+    "description": "Grounding talisman print, matted. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "serenity-talisman",
@@ -45,7 +45,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/product_photos/serenity_2.JPG",
-    "description": "Serenity talisman print, matted. Risograph on premium paper."
+    "description": "Serenity talisman print, matted. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "fish-poster",
@@ -57,7 +57,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/product_photos/animal_crossing.png",
-    "description": "Every fish in Animal Crossing, illustrated as a full chart. Poster print."
+    "description": "Fish of Animal Crossing print. Risograph printed, 11 x 17 inches."
   },
   {
     "slug": "apple-worm",
@@ -69,7 +69,7 @@
     "price": "$15.00",
     "inventory": 10,
     "image": "/images/product_photos/apple_worm.JPG",
-    "description": "Apple worm illustration. Print on premium paper."
+    "description": "Apple worm illustration. Risograph printed, 7.5 x 5.8 inches."
   },
   {
     "slug": "talisman-bundle",
@@ -81,7 +81,7 @@
     "price": "$70.00",
     "inventory": 5,
     "image": "/images/product_photos/talisman_bundle.JPG",
-    "description": "All three talisman prints \u2014 reaching, grounding and serenity \u2014 matted. Risograph on premium paper."
+    "description": "All three talisman prints \u2014 reaching, grounding and serenity \u2014 matted. Risograph printed, 5 x 15 inches each."
   },
   {
     "slug": "duckgrid",
@@ -93,7 +93,7 @@
     "price": "$20.00",
     "inventory": 10,
     "image": "/images/product_photos/duckgrid.png",
-    "description": "Duck studies print. 8.5 x 8.5 inches on premium paper."
+    "description": "Duck studies print. Risograph printed, 8.5 x 8.5 inches."
   },
   {
     "slug": "double-clover",
@@ -105,6 +105,6 @@
     "price": "$15.00",
     "inventory": 15,
     "image": "/images/product_photos/double_clover.png",
-    "description": "Double clover illustration. Limited run of 15. Print on premium paper."
+    "description": "Double clover illustration. Limited run of 15. Risograph printed, 7.5 x 5.8 inches."
   }
 ]
