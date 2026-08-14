@@ -66,18 +66,22 @@ export async function POST(req: NextRequest) {
       : "(no shipping address collected)"
 
     const shippingCost = session.total_details?.amount_shipping ?? 0
+    const pickup = session.metadata?.fulfillment === "pickup"
     const text = [
       `New order — ${formatCents(session.amount_total)}`,
+      pickup ? "*** LOCAL PICKUP — do not post ***" : "To be shipped",
       "",
       "Items",
       rows || "  (none)",
       "",
       `Subtotal   ${formatCents(session.amount_subtotal)}`,
-      `Shipping   ${formatCents(shippingCost)}${shippingCost === 0 ? "  (free shipping code used)" : ""}`,
+      pickup
+        ? "Shipping   —  (pickup)"
+        : `Shipping   ${formatCents(shippingCost)}${shippingCost === 0 ? "  (free shipping code used)" : ""}`,
       `Total      ${formatCents(session.amount_total)}`,
       "",
-      "Ship to",
-      addressBlock,
+      pickup ? "Pickup — no address collected" : "Ship to",
+      pickup ? "" : addressBlock,
       "",
       `Customer   ${session.customer_details?.email ?? "unknown"}`,
       `Session    ${session.id}`,
