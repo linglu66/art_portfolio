@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-context"
-import { products } from "@/lib/products"
+import { isUnlisted, products } from "@/lib/products"
 
 export default function ShopPage() {
   const { add, lines } = useCart()
@@ -19,7 +19,7 @@ export default function ShopPage() {
           const maxedOut = inCart >= product.inventory
           // No Stripe Price ID means checkout would reject it, so don't let it
           // into the cart in the first place.
-          const notListed = !product.priceId
+          const notListed = isUnlisted(product)
 
           return (
             <div

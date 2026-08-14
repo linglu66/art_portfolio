@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
-import { getProduct } from "@/lib/products"
+import { getProduct, priceIdFor, stripeModeForKey } from "@/lib/products"
 
 interface IncomingLine {
   slug: unknown
@@ -15,6 +15,8 @@ export async function POST(req: NextRequest) {
     console.error("STRIPE_SECRET_KEY is not set; cannot create a checkout session")
     return NextResponse.json({ error: "Checkout is unavailable right now" }, { status: 500 })
   }
+
+  const mode = stripeModeForKey(secretKey)
 
   let body: { lines?: IncomingLine[] }
   try {
@@ -54,17 +56,19 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    if (!product.priceId) {
-      // A product without a Stripe Price ID cannot be sold. Fail loudly rather
-      // than silently dropping it from an order the shopper thought they placed.
-      console.error(`Product ${product.slug} has no Stripe priceId; refusing checkout`)
+    // Pick the Price ID matching the key's catalog. Sending a live price to a
+    // test key (or vice versa) is a "No such price" error from Stripe, so
+    // catch it here with a message that says which mode is missing.
+    const priceId = priceIdFor(product, mode)
+    if (!priceId) {
+      console.error(`Product ${product.slug} has no ${mode}-mode Stripe price; refusing checkout`)
       return NextResponse.json(
         { error: `${product.title} isn't available for purchase yet` },
         { status: 409 },
       )
     }
 
-    lineItems.push({ quantity, price: product.priceId })
+    lineItems.push({ quantity, price: priceId })
   }
 
   const stripe = new Stripe(secretKey)
