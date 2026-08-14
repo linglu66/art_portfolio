@@ -8,7 +8,7 @@
     },
     "price": "$30.00",
     "inventory": 10,
-    "image": "/images/product_photos/reaching_product.png",
+    "image": "/images/product_photos/reaching_3.JPG",
     "description": "Reaching talisman print, matted. Risograph on premium paper."
   },
   {
@@ -20,7 +20,7 @@
     },
     "price": "$30.00",
     "inventory": 10,
-    "image": "/images/product_photos/grounding_product.png",
+    "image": "/images/product_photos/grounding_2.JPG",
     "description": "Grounding talisman print, matted. Risograph on premium paper."
   },
   {
@@ -32,7 +32,7 @@
     },
     "price": "$30.00",
     "inventory": 10,
-    "image": "/images/serenity_placed.png",
+    "image": "/images/product_photos/serenity_2.JPG",
     "description": "Serenity talisman print, matted. Risograph on premium paper."
   },
   {
@@ -58,5 +58,29 @@
     "inventory": 10,
     "image": "/images/apple_worm.png",
     "description": "Apple worm illustration. Print on premium paper."
+  },
+  {
+    "slug": "talisman-bundle",
+    "title": "3 Talisman Bundle",
+    "priceIds": {
+      "test": "",
+      "live": "price_1U4PSsGWYyY2k4ZoCFFRHyXL"
+    },
+    "price": "$70.00",
+    "inventory": 5,
+    "image": "/images/product_photos/talisman_bundle.JPG",
+    "description": "All three talisman prints \u2014 reaching, grounding and serenity \u2014 matted. Risograph on premium paper."
+  },
+  {
+    "slug": "duckgrid",
+    "title": "Duck Duck Duck Print",
+    "priceIds": {
+      "test": "",
+      "live": "price_1U4QlgGWYyY2k4Zongh8t3Uf"
+    },
+    "price": "$20.00",
+    "inventory": 10,
+    "image": "/images/product_photos/duckgrid.png",
+    "description": "Duck studies print. 8.5 x 8.5 inches on premium paper."
   }
 ]

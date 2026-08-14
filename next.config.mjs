@@ -19,9 +19,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
+  // Image optimization is left on: `unoptimized: true` was required for the
+  // static export on main, but Vercel serves this branch dynamically and the
+  // product photography is several MB per file straight off a camera.
 
   webpack: (config) => {
     config.module.rules.push({
