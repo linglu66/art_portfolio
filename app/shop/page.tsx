@@ -17,6 +17,9 @@ export default function ShopPage() {
           const inCart = lines.find((l) => l.slug === product.slug)?.quantity ?? 0
           const soldOut = product.inventory === 0
           const maxedOut = inCart >= product.inventory
+          // No Stripe Price ID means checkout would reject it, so don't let it
+          // into the cart in the first place.
+          const notListed = !product.priceId
 
           return (
             <div
@@ -39,7 +42,11 @@ export default function ShopPage() {
                 <div className="mt-auto">
                   <p className="text-xl font-bold mb-4">{product.price}</p>
 
-                  {soldOut ? (
+                  {notListed ? (
+                    <Button className="w-full" disabled>
+                      coming soon
+                    </Button>
+                  ) : soldOut ? (
                     <Button className="w-full" disabled>
                       sold out
                     </Button>

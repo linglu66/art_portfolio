@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
-import { getProduct, priceToCents } from "@/lib/products"
+import { getProduct } from "@/lib/products"
 
 interface IncomingLine {
   slug: unknown
@@ -30,8 +30,9 @@ export async function POST(req: NextRequest) {
 
   const origin = req.headers.get("origin") ?? new URL(req.url).origin
 
-  // Prices come from products.json on the server. The client only ever sends a
-  // slug and a quantity, so a tampered request cannot change what is charged.
+  // Line items reference Stripe Price IDs, so Stripe itself decides the amount
+  // charged. The client only ever sends a slug and a quantity — it cannot
+  // influence price at all.
   const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = []
   for (const line of incoming) {
     if (typeof line?.slug !== "string") {
@@ -53,18 +54,17 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    lineItems.push({
-      quantity,
-      price_data: {
-        currency: "usd",
-        unit_amount: priceToCents(product.price),
-        product_data: {
-          name: product.title,
-          description: product.description,
-          images: [`${origin}${product.image}`],
-        },
-      },
-    })
+    if (!product.priceId) {
+      // A product without a Stripe Price ID cannot be sold. Fail loudly rather
+      // than silently dropping it from an order the shopper thought they placed.
+      console.error(`Product ${product.slug} has no Stripe priceId; refusing checkout`)
+      return NextResponse.json(
+        { error: `${product.title} isn't available for purchase yet` },
+        { status: 409 },
+      )
+    }
+
+    lineItems.push({ quantity, price: product.priceId })
   }
 
   const stripe = new Stripe(secretKey)

@@ -2,6 +2,7 @@
   {
     "slug": "reaching-talisman",
     "title": "Reaching Talisman",
+    "priceId": "",
     "price": "$25.00",
     "inventory": 10,
     "image": "/images/product_photos/reaching_product.png",
@@ -10,6 +11,7 @@
   {
     "slug": "grounding-talisman",
     "title": "Grounding Talisman",
+    "priceId": "price_1U40X4GWYyY2k4ZoWs6GpttI",
     "price": "$25.00",
     "inventory": 10,
     "image": "/images/product_photos/grounding_product.png",
@@ -18,6 +20,7 @@
   {
     "slug": "serenity-talisman",
     "title": "Serenity Talisman",
+    "priceId": "",
     "price": "$25.00",
     "inventory": 10,
     "image": "/images/serenity_placed.png",
@@ -26,6 +29,7 @@
   {
     "slug": "fish-poster",
     "title": "Fish of Animal Crossing Poster",
+    "priceId": "",
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/product_photos/animal_crossing.png",
@@ -34,6 +38,7 @@
   {
     "slug": "apple-worm",
     "title": "Apple Worm Print",
+    "priceId": "",
     "price": "$20.00",
     "inventory": 10,
     "image": "/images/apple_worm.png",
