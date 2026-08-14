@@ -20,6 +20,12 @@ export interface Product {
 
 export const products = productsData as Product[]
 
+/**
+ * Flat shipping, US only. Shared by the cart display and the Checkout Session
+ * so the total shown can never disagree with the amount charged.
+ */
+export const SHIPPING_CENTS = 700
+
 export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug)
 }

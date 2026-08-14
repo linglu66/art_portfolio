@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { ShoppingBag, X } from "lucide-react"
 import { formatCents, useCart } from "@/components/cart-context"
-import { getProduct } from "@/lib/products"
+import { getProduct, SHIPPING_CENTS } from "@/lib/products"
 
 export default function CartDrawer() {
   const { lines, setQuantity, remove, count, subtotalCents, isOpen, setOpen } = useCart()
@@ -107,9 +107,19 @@ export default function CartDrawer() {
             </div>
 
             <div className="border-t border-gray-200 p-4">
-              <div className="flex justify-between mb-3">
+              <div className="flex justify-between text-sm text-gray-600">
                 <span>subtotal</span>
                 <span>{formatCents(subtotalCents)}</span>
+              </div>
+              <div className="flex justify-between text-sm text-gray-600 mb-2">
+                <span>shipping</span>
+                <span>{lines.length === 0 ? "—" : formatCents(SHIPPING_CENTS)}</span>
+              </div>
+              <div className="flex justify-between mb-3 font-semibold">
+                <span>total</span>
+                <span>
+                  {formatCents(subtotalCents + (lines.length === 0 ? 0 : SHIPPING_CENTS))}
+                </span>
               </div>
               {error && <p className="text-sm text-red-600 mb-2">{error}</p>}
               <button
@@ -120,7 +130,7 @@ export default function CartDrawer() {
                 {checkingOut ? "redirecting…" : "checkout"}
               </button>
               <p className="text-xs text-gray-500 mt-2 text-center">
-                shipping calculated at checkout
+                flat $7 shipping · US only
               </p>
             </div>
           </aside>

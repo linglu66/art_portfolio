@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
-import { getProduct, priceIdFor, stripeModeForKey } from "@/lib/products"
+import { getProduct, priceIdFor, SHIPPING_CENTS, stripeModeForKey } from "@/lib/products"
 
 interface IncomingLine {
   slug: unknown
@@ -79,7 +79,16 @@ export async function POST(req: NextRequest) {
       line_items: lineItems,
       success_url: `${origin}/shop/success/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/shop/`,
-      shipping_address_collection: { allowed_countries: ["US", "CA"] },
+      shipping_address_collection: { allowed_countries: ["US"] },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: { amount: SHIPPING_CENTS, currency: "usd" },
+            display_name: "Standard shipping",
+          },
+        },
+      ],
     })
 
     if (!session.url) throw new Error("Stripe returned a session with no URL")
