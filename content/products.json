@@ -94,5 +94,17 @@
     "inventory": 15,
     "image": "/images/product_photos/double_clover.png",
     "description": "Double clover illustration. Limited run of 15. Risograph printed, 7.5 x 5.8 inches."
+  },
+  {
+    "slug": "double-blossom",
+    "title": "Double Blossom",
+    "priceIds": {
+      "test": "",
+      "live": "price_1U5oDuGWYyY2k4Zo7PWSbwgQ"
+    },
+    "price": "$28.00",
+    "inventory": 5,
+    "image": "/images/product_photos/double_blossom.png",
+    "description": "Double blossom illustration. Risograph printed, 11 x 15 inches."
   }
 ]
