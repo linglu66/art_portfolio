@@ -21,7 +21,7 @@
     "slug": "double-clover-print",
     "title": "Double Clover Print",
     "paymentLink": "REPLACE_WITH_STRIPE_LINK",
-    "price": "$25.00",
+    "price": "$28.00",
     "inventory": 5,
     "image": "/images/double_clover.png",
     "description": "Risograph print. 11x15 inches on premium paper."
