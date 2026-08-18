@@ -11,12 +11,10 @@ export default function CartDrawer() {
   const [checkingOut, setCheckingOut] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [promoCode, setPromoCode] = useState("")
-  const [fulfillment, setFulfillment] = useState<"ship" | "pickup">("ship")
 
-  // Display only — the server re-derives both and decides what is charged.
-  const pickup = fulfillment === "pickup"
-  const freeShipping = !pickup && isFreeShippingCode(promoCode)
-  const shippingCents = pickup || freeShipping ? 0 : SHIPPING_CENTS
+  // Display only — the server re-checks the code and decides what is charged.
+  const freeShipping = isFreeShippingCode(promoCode)
+  const shippingCents = freeShipping ? 0 : SHIPPING_CENTS
   const hasItems = lines.length > 0
 
   async function checkout() {
@@ -28,7 +26,7 @@ export default function CartDrawer() {
       const res = await fetch("/api/checkout/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lines, promoCode, fulfillment }),
+        body: JSON.stringify({ lines, promoCode }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || "Checkout failed")
@@ -116,25 +114,7 @@ export default function CartDrawer() {
             </div>
 
             <div className="border-t border-gray-200 p-4">
-              <div className="flex gap-2 mb-3" role="radiogroup" aria-label="Delivery method">
-                {(["ship", "pickup"] as const).map((mode) => (
-                  <button
-                    key={mode}
-                    role="radio"
-                    aria-checked={fulfillment === mode}
-                    onClick={() => setFulfillment(mode)}
-                    className={`flex-1 border rounded py-1 text-sm ${
-                      fulfillment === mode
-                        ? "border-gray-800 bg-gray-50"
-                        : "border-gray-300 text-gray-600"
-                    }`}
-                  >
-                    {mode === "ship" ? "ship it" : "pick up"}
-                  </button>
-                ))}
-              </div>
-
-              <div className={`flex gap-2 mb-3 ${pickup ? "hidden" : ""}`}>
+              <div className="flex gap-2 mb-3">
                 <input
                   value={promoCode}
                   onChange={(e) => setPromoCode(e.target.value)}
@@ -156,12 +136,10 @@ export default function CartDrawer() {
                 <span>{formatCents(subtotalCents)}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <span>{pickup ? "pickup" : "shipping"}</span>
+                <span>shipping</span>
                 <span>
                   {!hasItems ? (
                     "—"
-                  ) : pickup ? (
-                    "free"
                   ) : freeShipping ? (
                     <>
                       <s className="text-gray-400 mr-1">{formatCents(SHIPPING_CENTS)}</s>free
@@ -184,9 +162,7 @@ export default function CartDrawer() {
                 {checkingOut ? "redirecting…" : "checkout"}
               </button>
               <p className="text-xs text-gray-500 mt-2 text-center">
-                {pickup
-                  ? "no shipping address needed — we'll email you to arrange pickup"
-                  : "flat $7 shipping · US only"}
+                flat $7 shipping · US only
               </p>
             </div>
           </aside>

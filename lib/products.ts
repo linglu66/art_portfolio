@@ -39,15 +39,7 @@ export function isFreeShippingCode(code: unknown): boolean {
   return FREE_SHIPPING_CODES.includes(code.trim().toUpperCase())
 }
 
-export type Fulfillment = "ship" | "pickup"
-
-export function isPickup(value: unknown): boolean {
-  return value === "pickup"
-}
-
-/** Pickup costs nothing; otherwise a valid code waives the flat rate. */
-export function shippingCentsFor(code: unknown, fulfillment?: unknown): number {
-  if (isPickup(fulfillment)) return 0
+export function shippingCentsFor(code: unknown): number {
   return isFreeShippingCode(code) ? 0 : SHIPPING_CENTS
 }
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"
-import { getProduct, isPickup, priceIdFor, shippingCentsFor, stripeModeForKey } from "@/lib/products"
+import { getProduct, priceIdFor, shippingCentsFor, stripeModeForKey } from "@/lib/products"
 
 interface IncomingLine {
   slug: unknown
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
   const mode = stripeModeForKey(secretKey)
 
-  let body: { lines?: IncomingLine[]; promoCode?: unknown; fulfillment?: unknown }
+  let body: { lines?: IncomingLine[]; promoCode?: unknown }
   try {
     body = await req.json()
   } catch {
@@ -71,10 +71,9 @@ export async function POST(req: NextRequest) {
     lineItems.push({ quantity, price: priceId })
   }
 
-  // Shipping is resolved on the server. A client claiming free shipping
-  // without a valid code simply pays the normal rate.
-  const pickup = isPickup(body.fulfillment)
-  const shippingCents = shippingCentsFor(body.promoCode, body.fulfillment)
+  // Shipping is resolved from the code on the server. A client claiming free
+  // shipping without a valid code simply pays the normal rate.
+  const shippingCents = shippingCentsFor(body.promoCode)
 
   const stripe = new Stripe(secretKey)
 
@@ -84,23 +83,16 @@ export async function POST(req: NextRequest) {
       line_items: lineItems,
       success_url: `${origin}/shop/success/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/shop/`,
-      // Pickup orders are never posted, so asking for a shipping address
-      // would only collect an address nobody uses.
-      ...(pickup
-        ? {}
-        : {
-            shipping_address_collection: { allowed_countries: ["US"] as const },
-            shipping_options: [
-              {
-                shipping_rate_data: {
-                  type: "fixed_amount" as const,
-                  fixed_amount: { amount: shippingCents, currency: "usd" },
-                  display_name: shippingCents === 0 ? "Free shipping" : "Standard shipping",
-                },
-              },
-            ],
-          }),
-      metadata: { fulfillment: pickup ? "pickup" : "ship" },
+      shipping_address_collection: { allowed_countries: ["US"] },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: { amount: shippingCents, currency: "usd" },
+            display_name: shippingCents === 0 ? "Free shipping" : "Standard shipping",
+          },
+        },
+      ],
     })
 
     if (!session.url) throw new Error("Stripe returned a session with no URL")
