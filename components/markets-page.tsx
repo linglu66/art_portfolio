@@ -78,9 +78,6 @@ export default function MarketsPage() {
           </ul>
           <ul>
             <li>
-              portfolio: <Link href="/" className="underline">fishlooker.com</Link>
-            </li>
-            <li>
               shop: <Link href="/shop" className="underline">fishlooker.com/shop</Link>
             </li>
             <li>

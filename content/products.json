@@ -8,7 +8,7 @@
     },
     "price": "$30.00",
     "inventory": 10,
-    "image": "/images/product_photos/reaching_3.JPG",
+    "image": "/images/reaching_placed.png",
     "description": "Reaching talisman print, matted. Risograph printed, 5 x 15 inches."
   },
   {
@@ -20,7 +20,7 @@
     },
     "price": "$30.00",
     "inventory": 10,
-    "image": "/images/product_photos/grounding_2.JPG",
+    "image": "/images/grounding_placed.png",
     "description": "Grounding talisman print, matted. Risograph printed, 5 x 15 inches."
   },
   {
@@ -32,7 +32,7 @@
     },
     "price": "$30.00",
     "inventory": 10,
-    "image": "/images/product_photos/serenity_2.JPG",
+    "image": "/images/serenity_placed.png",
     "description": "Serenity talisman print, matted. Risograph printed, 5 x 15 inches."
   },
   {
