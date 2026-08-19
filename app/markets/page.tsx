@@ -5,37 +5,41 @@ const base = '';
 
 const artSections = [
   {
+    title: "abstract & experimental",
+    images: [
+      { src: "/images/double_blossom_light.png", alt: "double blossom print" },
+      { src: "/images/walk02.png", alt: "lakeside walk print" },
+      { src: "/images/talisman_combo_2a.png", alt: "talisman prints combo" },
+      { src: "/images/walk4.png", alt: "autumn walk print" },
+      { src: "/images/double_clover_light.png", alt: "double clover print" },
+      { src: "/images/talisman_combo_2b.png", alt: "talisman prints combo" },
+    ],
+  },
+  {
     title: "risograph prints",
     images: [
-      { src: "/images/roadside.png", alt: "roadside risograph landscape print" },
-      { src: "/images/acnl.png", alt: "fish of animal crossing print" },
-      { src: "/images/duckduckduck.png", alt: "duck duck duck print" },
-      { src: "/images/blueberries.png", alt: "blueberries illustration" },
       { src: "/images/duckstack.png", alt: "duck stack print" },
+      { src: "/images/acnl.png", alt: "fish of animal crossing print" },
+      { src: "/images/roadside.png", alt: "roadside risograph landscape print" },
       { src: "/images/nishiki.png", alt: "nishiki print" },
+      { src: "/images/frogs.png", alt: "frogs illustration" },
       { src: "/images/tiger.jpg", alt: "tiger risograph print" },
-      { src: "/images/frogsdance.png", alt: "frogs dance illustration" },
-      { src: "/images/apple_worm.png", alt: "apple worm illustration" },
+      { src: "/images/angel.png", alt: "angel print" },
       { src: "/images/cat.png", alt: "cat brush drawing" },
+      { src: "/images/blueberries.png", alt: "blueberries illustration" },
+      { src: "/images/duckduckduck.png", alt: "duck duck duck print" },
+      { src: "/images/apple_worm.png", alt: "apple worm illustration" },
     ],
   },
   {
     title: "comics",
     images: [
+      { src: "/images/p8.jpg", alt: "crossed wires comic spread" },
       { src: "/images/crossed_wires.png", alt: "crossed wires risograph minicomic cover" },
-      { src: "/images/comic.png", alt: "comic page" },
       { src: "/images/comic2.jpg", alt: "comic page" },
+      { src: "/images/p6.jpg", alt: "crossed wires comic spread" },
       { src: "/images/comic3.jpg", alt: "comic page" },
-    ],
-  },
-  {
-    title: "abstract & experimental",
-    images: [
-      { src: "/images/reaching_placed.png", alt: "reaching talisman print, matted" },
-      { src: "/images/grounding_placed.png", alt: "grounding talisman print, matted" },
-      { src: "/images/serenity_placed.png", alt: "serenity talisman print, matted" },
-      { src: "/images/walk02.png", alt: "lakeside walk print" },
-      { src: "/images/walk4.png", alt: "autumn walk print" },
+      { src: "/images/comic.png", alt: "comic page" },
     ],
   },
 ]

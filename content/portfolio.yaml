@@ -37,12 +37,23 @@ pieces:
 
   - id: frogsdance
     title: frogs dance
-    cover: /images/frogsdance.png
+    cover: /images/frogs.png
     images: []
     description: illustration
     category: illustration
     hasArrow: false
     aspectRatio: 3/2
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: angel
+    title: angel
+    cover: /images/angel.png
+    images: []
+    description: risograph print illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 4/5
     backgroundColor: yellow-50
     hasDetailPage: false
 
