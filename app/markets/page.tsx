@@ -6,6 +6,7 @@ const base = '';
 const artSections = [
   {
     title: "abstract & experimental",
+    cols: "columns-3",
     images: [
       { src: "/images/double_blossom_light.png", alt: "double blossom print" },
       { src: "/images/walk02.png", alt: "lakeside walk print" },
@@ -17,6 +18,7 @@ const artSections = [
   },
   {
     title: "risograph prints",
+    cols: "columns-4",
     images: [
       { src: "/images/duckstack.png", alt: "duck stack print" },
       { src: "/images/acnl.png", alt: "fish of animal crossing print" },
@@ -32,7 +34,8 @@ const artSections = [
     ],
   },
   {
-    title: "comics",
+    title: "handmade comics and zines",
+    cols: "columns-3",
     images: [
       { src: "/images/p8.jpg", alt: "crossed wires comic spread" },
       { src: "/images/crossed_wires.png", alt: "crossed wires risograph minicomic cover" },
@@ -86,7 +89,7 @@ export default function Markets() {
           {artSections.map((section) => (
             <div key={section.title} className="mb-8">
               <p className="text-3xl font-bold tracking-tight border-b-2 border-dotted border-gray-900 pb-2 mb-5">{section.title}</p>
-              <div className="columns-3 gap-4">
+              <div className={`${section.cols} gap-4`}>
                 {section.images.map((img) => (
                   <div key={img.src} className="border border-gray-200 rounded-md p-2 mb-4 break-inside-avoid inline-block w-full">
                     <Image

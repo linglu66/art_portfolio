@@ -57,6 +57,28 @@ pieces:
     backgroundColor: yellow-50
     hasDetailPage: false
 
+  - id: double-blossom
+    title: double blossom
+    cover: /images/double_blossom_light.png
+    images: []
+    description: risograph print illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 2/3
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
+  - id: double-clover
+    title: double clover
+    cover: /images/double_clover_light.png
+    images: []
+    description: risograph print illustration
+    category: illustration
+    hasArrow: false
+    aspectRatio: 2/3
+    backgroundColor: yellow-50
+    hasDetailPage: false
+
   - id: fallen_star
     title: fallen star
     cover: /images/fallen_star.jpg
@@ -87,17 +109,6 @@ pieces:
     category: illustration
     hasArrow: false
     aspectRatio: 2/3
-    backgroundColor: yellow-50
-    hasDetailPage: false
-
-  - id: beyond
-    title: beyond
-    cover: /images/beyond.png
-    images: []
-    description: illustration
-    category: illustration
-    hasArrow: false
-    aspectRatio: 1/1
     backgroundColor: yellow-50
     hasDetailPage: false
 
@@ -250,17 +261,6 @@ pieces:
     hasArrow: false
     aspectRatio: 2/3
     backgroundColor: yellow-50
-    hasDetailPage: false
-
-  - id: landscape
-    title: spring
-    cover: /images/spring.png
-    images: []
-    description: risograph print illustration
-    category: painting
-    hasArrow: false
-    aspectRatio: 16/9
-    backgroundColor: sky-300
     hasDetailPage: false
 
 # Global settings
