@@ -59,16 +59,18 @@ export default function MarketsPage() {
   return (
     <div className="p-8 max-w-[2000px] mx-auto">
       {/* intro: text left, art gallery right */}
-      <div className="grid md:grid-cols-[1fr_6fr] gap-8">
+      <div className="grid md:grid-cols-[1fr_5fr] gap-8">
         <div className="text-lg md:sticky md:top-8 md:self-start">
           <p className="text-3xl font-semibold">hello!</p>
           <p className="mt-4 mb-4">
-            i&apos;m ling lu (fishlooker), an nyc-based illustrator and comic
-            artist. i make risograph prints, handmade comics, and zines — ducks,
-            frogs, quiet landscapes, and small everyday creatures rendered with a
-            lot of warmth. underneath the softness, my work keeps circling
-            coming-of-age, connection, and the way technology reshapes who we
-            think we are.
+            i&apos;m ling lu (fishlooker), an illustrator and comic artist in
+            new york.
+          </p>
+          <p className="mb-4">
+            i make risograph prints, handmade comics, and zines populated by
+            wacky animals, tangled flora, and the folk motifs and textile
+            patterns from home. my work runs on nostalgia and brightness, and
+            aims for the feeling of a deep exhale.
           </p>
           <p className="font-semibold mb-2">merch</p>
           <ul className="mb-6 list-disc list-inside">

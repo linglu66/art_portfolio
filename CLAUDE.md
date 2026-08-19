@@ -63,12 +63,14 @@ current when you learn something non-obvious.
   picks the ID matching the secret key's mode; the client only sends slug + quantity, so Stripe
   is the source of truth for the amount. The `price` string in JSON is display-only.
 - A product with **both priceIds empty shows "coming soon"** (`isUnlisted`) and can't be bought.
-- `STRIPE_SECRET_KEY` is **only in Vercel's env** — there is no local `.env` and no Stripe CLI
-  installed. You therefore **cannot create Stripe products/prices from this environment**.
-  To add a sellable product you need the live Price ID, which requires either:
-    1. Ling creating the product+price in the Stripe dashboard and giving you the `price_...` ID, or
-    2. Running a script with `STRIPE_SECRET_KEY` set in Ling's own shell (see `scripts/` if present).
-  Never ask Ling to paste a live secret key into the chat.
+- `.env.local` (gitignored) holds a **live** `STRIPE_SECRET_KEY` and publishable key, so you
+  *can* create Stripe products/prices from here. To add a sellable product:
+    `set -a && . ./.env.local && set +a && node scripts/create-stripe-products.mjs`
+  The script is idempotent — it skips anything that already has a Price ID for the key's mode,
+  creates product+price for the rest from the `price` string, and writes the IDs back into
+  `content/products.json`. It creates **live** objects, so check Stripe for an existing product
+  of the same name first (`stripe.products.list`) to avoid duplicates.
+  Never print the key's value; never ask Ling to paste a secret key into the chat.
 - `stripe` npm package (^20) is installed. Shipping is a flat `SHIPPING_CENTS` (currently $7),
   waived by codes in `FREE_SHIPPING_CODES` (`FREESHIP`, `MARKET`).
 

@@ -9,7 +9,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/reaching_placed.png",
-    "description": "Reaching talisman print, matted. Risograph printed, 5 x 15 inches."
+    "description": "Reaching talisman print. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "grounding-talisman",
@@ -21,7 +21,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/grounding_placed.png",
-    "description": "Grounding talisman print, matted. Risograph printed, 5 x 15 inches."
+    "description": "Grounding talisman print. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "serenity-talisman",
@@ -33,7 +33,7 @@
     "price": "$30.00",
     "inventory": 10,
     "image": "/images/serenity_placed.png",
-    "description": "Serenity talisman print, matted. Risograph printed, 5 x 15 inches."
+    "description": "Serenity talisman print. Risograph printed, 5 x 15 inches."
   },
   {
     "slug": "fish-poster",
@@ -69,7 +69,7 @@
     "price": "$70.00",
     "inventory": 5,
     "image": "/images/product_photos/talisman_bundle.JPG",
-    "description": "All three talisman prints \u2014 reaching, grounding and serenity \u2014 matted. Risograph printed, 5 x 15 inches each."
+    "description": "All three talisman prints — reaching, grounding and serenity. Risograph printed, 5 x 15 inches each."
   },
   {
     "slug": "duckgrid",
@@ -112,35 +112,35 @@
     "title": "Bloom",
     "priceIds": {
       "test": "",
-      "live": ""
+      "live": "price_1U6FBsGWYyY2k4Zof1V8GwGx"
     },
     "price": "$20.00",
     "inventory": 10,
     "image": "/images/bloom_placed.png",
-    "description": "Bloom risograph print, matted."
+    "description": "Bloom illustration. Risograph printed, 8.5 x 11 inches."
   },
   {
     "slug": "nishiki",
     "title": "Nishiki",
     "priceIds": {
       "test": "",
-      "live": ""
+      "live": "price_1U6FBsGWYyY2k4Zoir36bg0i"
     },
     "price": "$15.00",
     "inventory": 10,
     "image": "/images/nishiki_placed.png",
-    "description": "Nishiki risograph print, matted."
+    "description": "Nishiki illustration. Risograph printed, 5 x 7 inches."
   },
   {
     "slug": "duckstack",
     "title": "Duck Stack",
     "priceIds": {
       "test": "",
-      "live": ""
+      "live": "price_1U6FBsGWYyY2k4ZowxP4ahmb"
     },
     "price": "$28.00",
     "inventory": 10,
     "image": "/images/duckstack_placed.png",
-    "description": "Duck stack risograph print, matted."
+    "description": "Duck stack illustration. Risograph printed, 11 x 17 inches."
   }
 ]

@@ -55,7 +55,7 @@ export default function CartDrawer() {
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
-          <aside className="relative w-full max-w-sm bg-white h-full flex flex-col border-l border-gray-200">
+          <aside className="relative w-full max-w-md bg-white h-full flex flex-col border-l border-gray-200">
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <h2 className="font-semibold">cart</h2>
               <button onClick={() => setOpen(false)} aria-label="Close cart">
@@ -70,30 +70,30 @@ export default function CartDrawer() {
                 const product = getProduct(line.slug)
                 if (!product) return null
                 return (
-                  <div key={line.slug} className="flex gap-3">
-                    <div className="relative w-16 h-16 shrink-0 bg-gray-50 rounded">
+                  <div key={line.slug} className="flex gap-4">
+                    <div className="relative w-24 h-24 shrink-0 bg-gray-50 rounded">
                       <Image
                         src={product.image}
                         alt={product.title}
                         fill
-                        sizes="64px"
+                        sizes="96px"
                         className="object-cover rounded"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm truncate">{product.title}</p>
-                      <p className="text-sm text-gray-600">{product.price}</p>
-                      <div className="flex items-center gap-2 mt-1">
+                      <p className="text-base truncate">{product.title}</p>
+                      <p className="text-base text-gray-600">{product.price}</p>
+                      <div className="flex items-center gap-2 mt-2">
                         <button
-                          className="border border-gray-300 rounded w-6 h-6 leading-none"
+                          className="border border-gray-300 rounded w-8 h-8 text-base leading-none"
                           onClick={() => setQuantity(line.slug, line.quantity - 1)}
                           aria-label={`Decrease ${product.title}`}
                         >
                           −
                         </button>
-                        <span className="text-sm w-4 text-center">{line.quantity}</span>
+                        <span className="text-base w-5 text-center">{line.quantity}</span>
                         <button
-                          className="border border-gray-300 rounded w-6 h-6 leading-none disabled:opacity-40"
+                          className="border border-gray-300 rounded w-8 h-8 text-base leading-none disabled:opacity-40"
                           onClick={() => setQuantity(line.slug, line.quantity + 1)}
                           disabled={line.quantity >= product.inventory}
                           aria-label={`Increase ${product.title}`}
@@ -101,7 +101,7 @@ export default function CartDrawer() {
                           +
                         </button>
                         <button
-                          className="text-xs underline ml-auto"
+                          className="text-sm underline ml-auto"
                           onClick={() => remove(line.slug)}
                         >
                           remove
