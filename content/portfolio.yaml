@@ -24,17 +24,6 @@ pieces:
     backgroundColor: yellow-50
     hasDetailPage: false
 
-  - id: comic3
-    title: comic dailies #3
-    cover: /images/comic3.jpg
-    images: []
-    description: single page comic
-    category: illustration
-    hasArrow: false
-    aspectRatio: 1/1
-    backgroundColor: yellow-50
-    hasDetailPage: false
-
   - id: nishiki
     title: nishiki
     cover: /images/nishiki.png
@@ -77,17 +66,6 @@ pieces:
     hasArrow: false
     aspectRatio: 2/3
     backgroundColor: yellow-50
-    hasDetailPage: false
-
-  - id: comic-frames
-    title: comic dailies #1
-    cover: /images/comic.png
-    images: []
-    description: single page comic
-    category: illustration
-    hasArrow: false
-    aspectRatio: 1/1
-    backgroundColor: yellow-100
     hasDetailPage: false
 
   - id: walk2
@@ -230,31 +208,6 @@ pieces:
     backgroundColor: yellow-50
     hasDetailPage: false
 
-  - id: the_bear
-    title: the bear
-    cover: /images/the_bear.jpg
-    images: []
-    description: print illustration
-    category: illustration
-    hasArrow: false
-    aspectRatio: 1/1
-    backgroundColor: yellow-50
-    hasDetailPage: false
-
-  - id: featherweight
-    title: featherweight
-    cover: /images/featherweight.jpg
-    images:
-      - /images/featherweight_p1
-      - /images/featherweight_p2
-      - /images/featherweight_p3
-    description: "[WIP] multipage comic \n \n a pyschological drama about a tightrope walker and a man who can't let go of his past"
-    category: illustration
-    hasArrow: false
-    aspectRatio: 4/3
-    backgroundColor: gray-100
-    hasDetailPage: true
-
   - id: reaching
     title: reaching
     cover: /images/reaching.png
@@ -271,17 +224,6 @@ pieces:
     cover: /images/sunny.jpg
     images: []
     description: risograph print illustration
-    category: illustration
-    hasArrow: false
-    aspectRatio: 1/1
-    backgroundColor: yellow-50
-    hasDetailPage: false
-
-  - id: comic2
-    title: comic dailies #2
-    cover: /images/comic2.jpg
-    images: []
-    description: single page comic
     category: illustration
     hasArrow: false
     aspectRatio: 1/1
