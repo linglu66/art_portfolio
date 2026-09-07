@@ -6,7 +6,7 @@ const base = '';
 const artSections = [
   {
     title: "folk + flora",
-    cols: "columns-3",
+    cols: "columns-1 md:columns-3",
     images: [
       { src: "/images/double_blossom_light.png", alt: "double blossom print" },
       { src: "/images/walk02.png", alt: "lakeside walk print" },
@@ -18,7 +18,7 @@ const artSections = [
   },
   {
     title: "risograph prints",
-    cols: "columns-4",
+    cols: "columns-1 md:columns-4",
     images: [
       { src: "/images/duckstack.png", alt: "duck stack print" },
       { src: "/images/acnl.png", alt: "fish of animal crossing print" },
@@ -36,7 +36,7 @@ const artSections = [
   },
   {
     title: "handmade comics and zines",
-    cols: "columns-3",
+    cols: "columns-1 md:columns-3",
     images: [
       { src: "/images/p8.jpg", alt: "crossed wires comic spread" },
       { src: "/images/crossed_wires.png", alt: "crossed wires risograph minicomic cover" },
@@ -57,10 +57,10 @@ const marketShots = [
 
 export default function MarketsPage() {
   return (
-    <div className="p-8 max-w-[2000px] mx-auto">
+    <div className="p-4 md:p-8 max-w-[2000px] mx-auto">
       {/* intro: text left, art gallery right */}
-      <div className="grid md:grid-cols-[1fr_5fr] gap-8">
-        <div className="text-lg md:sticky md:top-8 md:self-start">
+      <div className="grid md:grid-cols-[1fr_5fr] gap-6 md:gap-8">
+        <div className="text-base md:text-lg md:sticky md:top-8 md:self-start">
           <p className="text-3xl font-semibold">hello!</p>
           <p className="mt-4 mb-4">
             i&apos;m ling lu (fishlooker), an illustrator and comic artist in
