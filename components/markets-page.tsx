@@ -5,7 +5,7 @@ const base = '';
 
 const artSections = [
   {
-    title: "abstract & experimental",
+    title: "folk + flora",
     cols: "columns-3",
     images: [
       { src: "/images/double_blossom_light.png", alt: "double blossom print" },
@@ -70,7 +70,8 @@ export default function MarketsPage() {
             i make risograph prints, handmade comics, and zines populated by
             wacky animals, tangled flora, and the folk motifs and textile
             patterns from home. my work runs on nostalgia and brightness, and
-            aims for the feeling of a deep exhale.
+            aims for the feeling of a deep exhale. available for commissions
+            and illustration projects — <a href="mailto:hello@fishlooker.com" className="underline">get in touch</a>.
           </p>
           <p className="font-semibold mb-2">merch</p>
           <ul className="mb-6 list-disc list-inside">
@@ -78,14 +79,20 @@ export default function MarketsPage() {
             <li>comics &amp; zines</li>
             <li>stationery</li>
           </ul>
-          <ul>
+          <ul className="mb-6">
             <li>
               shop: <Link href="/shop" className="underline">fishlooker.com/shop</Link>
             </li>
             <li>
-              email: <a href="mailto:ling.lu916@gmail.com" className="underline">ling.lu916@gmail.com</a>
+              instagram: <a href="https://instagram.com/fishlooker" className="underline" target="_blank" rel="noopener noreferrer">@fishlooker</a>
+            </li>
+            <li>
+              email: <a href="mailto:hello@fishlooker.com" className="underline">hello@fishlooker.com</a>
             </li>
           </ul>
+          <p className="font-semibold mb-1">wholesale</p>
+          <p className="mb-1 text-base">order my prints and zines wholesale on faire:</p>
+          <a href="https://fishlooker.faire.com" className="underline text-base" target="_blank" rel="noopener noreferrer">fishlooker.faire.com</a>
         </div>
 
         <div>

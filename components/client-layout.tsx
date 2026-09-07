@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Instagram } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 import { usePathname } from "next/navigation"
@@ -30,7 +30,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             .toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" })
             .replace(/^./, c => c.toLowerCase())}
         </div>
-        <div>ling lu / fishlooker </div>
+        <div className="flex items-center gap-2">
+          ling lu / fishlooker
+          <a href="https://instagram.com/fishlooker" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <Instagram size={20} strokeWidth={2} />
+          </a>
+        </div>
         <div className="flex items-center gap-4">
           <div className="w-6 h-4 border border-gray-800 rounded-sm relative">
             <div className="absolute right-0.5 top-0.5 bottom-0.5 w-3/4 bg-gray-800"></div>
